@@ -1,0 +1,44 @@
+/* 🌈 Navbar */
+.navbar {
+    background: linear-gradient(90deg, #0c8e70, #0aa380);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    margin: 0 !important;
+    transition: all 0.3s ease;
+}
+
+/* 🔗 Navbar Links */
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    background: rgba(0, 0, 0, 0.33);
+    transform: translateY(-2px);
+}
+
+/* 🌀 Logo Animation */
+.logo {
+    width: 4rem;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: floatUp 2s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+
+    0%,
+    100% {
+        transform: translateY(-4px);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+}
