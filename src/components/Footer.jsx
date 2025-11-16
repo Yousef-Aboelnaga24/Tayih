@@ -4,8 +4,8 @@ import '../assets/css/Footer.css'
 function Footer() {
     return (
         <footer className="text-white py-5" style={{ backgroundColor: "#074c3a" }}>
-            <div className="container-fluid text-md-start">
-                <div className="row text-md-start border-bottom pb-3">
+            <div className="container-fluid d-flex flex-column text-md-start">
+                <div className="row text-md-start pb-3">
                     {/* القسم الأول */}
                     <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h2 className="fw-bold mb-3 fs-4">تائه</h2>
@@ -113,10 +113,10 @@ function Footer() {
                             </a>
                         </div>
                     </div>
-                </div>
 
-                <div className="d-flex justify-content-center align-content-center align-items-center text-center">
-                    <p className="mt-3">
+                </div>
+                <div className="pt-4 border-top d-flex justify-content-center">
+                    <p className="align-items-center">
                         &copy; {new Date().getFullYear()} جميع الحقوق محفوظة لموقع{" "}
                         <span className="fw-bold">تائه</span>
                     </p>

@@ -6,26 +6,22 @@ function Hero() {
         <main>
             <section className="hero-section">
                 <div className="container hero-content text-white">
-                    <h1
-                        data-aos="fade-up"
-                        data-aos-duration="2000"
-                        className="hero-title text-white fw-bold display-4 mb-3"
-                    >
+                    <h1 data-aos="zoom-in" data-aos-duration="1000" className="hero-title text-white fw-bold mb-3">
                         مرحباً بك في منصة <span className="brand">"تائه"</span>
                     </h1>
 
-                    <div data-aos="fade-up" data-aos-duration="3000">
-                        <p className="fs-5">
+                    <div data-aos="fade-up" data-aos-duration="500">
+                        <p className="">
                             منصة إنسانية تساعدك في الإبلاغ والبحث عن الأطفال المفقودين وكبار
                             السن التائهين بكل سهولة وسرعة.
                         </p>
-                        <p className="fs-5 mt-3">
+                        <p className="mt-3">
                             <i
                                 className="fa fa-triangle-exclamation"
                                 style={{ color: "#ff3d3d" }}
                             ></i>{" "}
                             عدد البلاغات{" "}
-                            <span className="fw-bold" id="countMissing">
+                            <span className="fw-bold">
                                 0
                             </span>{" "}
                             بلاغ حتى الآن عبر المنصة.
@@ -36,8 +32,8 @@ function Hero() {
                         <Link
                             to="/report"
                             data-aos="fade-left"
-                            data-aos-duration="1500"
-                            data-aos-delay="1500"
+                            data-aos-duration="1000"
+                            data-aos-delay="1000"
                             className="btn btn-outline-light px-4 rounded-pill"
                         >
                             أبلغ عن مفقود
@@ -45,8 +41,8 @@ function Hero() {
                         <Link
                             to="/missing"
                             data-aos="fade-right"
-                            data-aos-duration="1500"
-                            data-aos-delay="1500"
+                            data-aos-duration="1000"
+                            data-aos-delay="1000"
                             className="btn btn-outline-light px-4 rounded-pill"
                         >
                             ابحث عن شخص

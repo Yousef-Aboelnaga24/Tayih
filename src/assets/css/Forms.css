@@ -2,22 +2,3 @@
     background: linear-gradient(to right, #09906F, #38b99d);
     font-family: "Cairo", sans-serif;
 }
-
-.card {
-    border: none;
-    border-radius: 1rem;
-}
-
-.form-control:focus {
-    box-shadow: none;
-    border-color: #09906F;
-}
-
-.btn-main {
-    background-color: #09906F;
-    color: #fff;
-}
-
-.btn-main:hover {
-    background-color: #077d5f;
-}

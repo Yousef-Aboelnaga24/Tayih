@@ -4,7 +4,7 @@ h2 {
 }
 
 .footer-contact p:hover,
-.footer-contact i:hover {
+.footer-contact p:hover i {
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.3s ease;
