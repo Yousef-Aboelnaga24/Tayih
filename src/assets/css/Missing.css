@@ -1,0 +1,31 @@
+/* تأثير Hover على الكارت */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* تنسيق صورة الشخص */
+.person-img {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.person-img:hover {
+  transform: scale(1.05);
+}
+
+/* زر Hover */
+.btn-hover {
+  transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+  background-color: #0c7b54;
+  color: #fff;
+  transform: translateY(-2px);
+}

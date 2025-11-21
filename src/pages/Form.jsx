@@ -24,7 +24,6 @@ function Form() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [reporterName, setReporterName] = useState("");
 
-  // جلب أي بيانات سابقة من LocalStorage عند تحميل الصفحة
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem("missingPeople")) || [];
     console.log("البيانات الحالية في LocalStorage:", savedData);
@@ -53,8 +52,8 @@ function Form() {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setPersonImage(reader.result); // Base64 محفوظ في state
-      localStorage.setItem("previewImagePerson", reader.result); // حفظ في LocalStorage
+      setPersonImage(reader.result);
+      localStorage.setItem("previewImagePerson", reader.result);
     };
     reader.readAsDataURL(file);
   };
@@ -64,9 +63,13 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!personImage) { Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ارفع صورة ", confirmButtonText: "حسناً", }); return; }
+    if (!personImage) {
+      Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ارفع صورة ", confirmButtonText: "حسناً", }); return;
+    }
 
-    if (!personName) { Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ادخل اسم المفقود", confirmButtonText: "حسناً", }); return; }
+    if (!personName) {
+      Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ادخل اسم المفقود", confirmButtonText: "حسناً", }); return;
+    }
 
     const ageNum = Number(age);
     if (isNaN(ageNum) || ageNum < 1 || ageNum > 120) {
@@ -142,13 +145,14 @@ function Form() {
   };
 
   return (
-    <section>
+    <section style={{ marginTop: "110px" }}>
       <div className="container-fluid my-5">
-        <h2 className="text-center my-4 fw-bold">تقديم بلاغ مفقود</h2>
+        <h2 className="text-center my-4 fw-bold text-success">تقديم بلاغ مفقود</h2>
         <form
           onSubmit={handleSubmit}
           encType="multipart/form-data"
           className="bg-white p-4 shadow-lg w-75 rounded mx-auto"
+          id="reportForm"
         >
           {/* صورة الشخص */}
           <div className="mb-3">
@@ -290,7 +294,7 @@ function Form() {
 
           {/* الزرار */}
           <div className="text-center">
-            <button type="submit" className="btn btn-main w-50">
+            <button type="submit" className="btn fw-bold rounded-3 p-2 btn-main">
               إرسال البلاغ <i className="fa-solid fa-paper-plane ms-2"></i>
             </button>
           </div>

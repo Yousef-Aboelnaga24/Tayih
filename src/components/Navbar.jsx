@@ -8,7 +8,7 @@ function Navbar() {
           {/* Logo */}
           <Link className="navbar-brand fw-bold" to="/">
             <img
-              src="/image/logo.webp"
+              src="/image/logo-3.png"
               fetchpriority="high"
               alt="شعار-تائه"
               className="logo"

@@ -51,7 +51,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
-        <Route path="/about" element={<Layout><About /></Layout>} />
+        <Route path="/about" element={<Layout showFooter={false}><About /></Layout>} />
         <Route path="/report" element={<Layout showFooter={false}><Form /></Layout>} />
         <Route path="/missing" element={<Layout showFooter={false}><MissingSec /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />

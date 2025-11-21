@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import '../assets/css/Hero.css'
 
 function Hero() {
+    const saved = JSON.parse(localStorage.getItem("missingPeople")) || [];
     return (
         <main>
             <section className="hero-section">
@@ -22,9 +23,7 @@ function Hero() {
                             ></i>{" "}
                             عدد البلاغات{" "}
                             <span className="fw-bold">
-                                0
-                            </span>{" "}
-                            بلاغ حتى الآن عبر المنصة.
+                            </span>{saved.length} بلاغ حتى الآن عبر المنصة.
                         </p>
                     </div>
 

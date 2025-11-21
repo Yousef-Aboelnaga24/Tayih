@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../assets/css/Missing.css"
 
 function Missing() {
   const [people, setPeople] = useState([]);
@@ -26,22 +27,22 @@ function Missing() {
             <p className="text-muted fw-bold">لا يوجد بلاغات بعد.</p>
           ) : (
             people.map((person) => (
-              <div key={person.id} className="col-sm-6 col-md-4 col-lg-3">
-                <div className="card missing-card h-100 shadow border-0 rounded-3">
+              <div key={person.id} className="col-sm-6 col-md-4 col-lg-3 d-flex">
+                <div className="card missing-card h-100 shadow border-0 rounded-3 flex-fill hover-card">
 
                   {/* صورة الشخص */}
                   <img
                     src={person.personImage}
                     loading="lazy"
-                    className="card-img-top preview rounded-top"
+                    className="card-img-top preview rounded-top person-img"
                     alt={`صورة ${person.personName}`}
                   />
 
                   {/* بيانات */}
-                  <div className="card-body text-center">
+                  <div className="card-body text-center d-flex flex-column justify-content-between">
 
                     {/* الاسم */}
-                    <h5 className="card-title fw-bold fs-4 mb-2">
+                    <h5 className="card-title fw-bold fs-5 mb-2">
                       <i className="fa-solid fa-user me-1 text-success"></i> {person.personName}
                     </h5>
 
@@ -56,7 +57,7 @@ function Missing() {
                     </p>
 
                     {/* تاريخ البلاغ */}
-                    <p className="card-text text-secondary small">
+                    <p className="card-text text-secondary small mb-3">
                       <i className="fa fa-clock me-1"></i>
                       {new Date(person.reportDate || Date.now()).toLocaleDateString("ar-EG")}
                     </p>
@@ -64,7 +65,7 @@ function Missing() {
                     {/* زر التفاصيل */}
                     <button
                       onClick={() => goToDetails(person.id)}
-                      className="btn-detail btn btn-outline-success rounded-pill mt-2 px-4"
+                      className="btn rounded-pill mt-2 px-4 btn-hover"
                     >
                       <i className="fa-solid fa-circle-info me-1"></i> تفاصيل أكثر
                     </button>
