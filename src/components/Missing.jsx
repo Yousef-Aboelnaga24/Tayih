@@ -66,7 +66,7 @@ function Missing() {
                   {/* الزر */}
                   <button
                     onClick={() => navigate(`/details/${person.id}`)}
-                    className="btn rounded-pill mt-2 px-4 btn-hover"
+                    className="btn btn-success rounded-pill mt-2 px-4 btn-hover"
                   >
                     <i className="fa-solid fa-circle-info me-1"></i> تفاصيل أكثر
                   </button>
