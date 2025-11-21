@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "../assets/css/Form.css";
@@ -13,7 +13,7 @@ const governorates = [
 function Form() {
   const navigate = useNavigate();
 
-  // States
+  // ✅ جلب البيانات من LocalStorage لو موجودة
   const [personImage, setPersonImage] = useState(null);
   const [personName, setPersonName] = useState("");
   const [age, setAge] = useState("");
@@ -24,17 +24,23 @@ function Form() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [reporterName, setReporterName] = useState("");
 
+  // جلب أي بيانات سابقة من LocalStorage عند تحميل الصفحة
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem("missingPeople")) || [];
+    console.log("البيانات الحالية في LocalStorage:", savedData);
+  }, []);
+
   // فقط حروف عربية ومسافات
   const letterOnly = (value) => value.replace(/[^\u0621-\u064A\s]/g, "");
-
   // فقط أرقام
   const numberOnly = (value) => value.replace(/[^0-9]/g, "");
 
   // رفع الصورة مع التحقق
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+    if (!file) return;
 
-    if (file && !file.type.startsWith("image/")) {
+    if (!file.type.startsWith("image/")) {
       Swal.fire({
         icon: "error",
         title: "خطأ",
@@ -45,25 +51,23 @@ function Form() {
       return;
     }
 
-    setPersonImage(file);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPersonImage(reader.result); // Base64 محفوظ في state
+      localStorage.setItem("previewImagePerson", reader.result); // حفظ في LocalStorage
+    };
+    reader.readAsDataURL(file);
   };
+
 
   // إرسال النموذج
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // التأكد من عدم وجود حقول فاضية
-    if (!personImage || !personName || !age || !governorate || !lastSeen || !details || !phoneNumber || !reporterName) {
-      Swal.fire({
-        icon: "error",
-        title: "خطأ",
-        text: "من فضلك املأ جميع الحقول",
-        confirmButtonText: "حسناً",
-      });
-      return;
-    }
+    if (!personImage) { Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ارفع صورة ", confirmButtonText: "حسناً", }); return; }
 
-    // التحقق من العمر
+    if (!personName) { Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ادخل اسم المفقود", confirmButtonText: "حسناً", }); return; }
+
     const ageNum = Number(age);
     if (isNaN(ageNum) || ageNum < 1 || ageNum > 120) {
       Swal.fire({
@@ -75,30 +79,6 @@ function Form() {
       return;
     }
 
-    //النوع
-    if (!gender) {
-      Swal.fire({
-        icon: "error",
-        title: "خطأ",
-        text: "من فضلك اختر النوع (ذكر أو أنثى)",
-        confirmButtonText: "حسناً",
-      });
-      return;
-    }
-
-
-    // المحافظة
-    if (!governorates.includes(governorate)) {
-      Swal.fire({
-        icon: "error",
-        title: "خطأ",
-        text: "اختر محافظة صحيحة",
-        confirmButtonText: "حسناً",
-      });
-      return;
-    }
-
-    // رقم الهاتف
     if (!/^0\d{10}$/.test(phoneNumber)) {
       Swal.fire({
         icon: "error",
@@ -109,6 +89,35 @@ function Form() {
       return;
     }
 
+    // التحقق من الحقول
+    if (!personImage || !personName || !age || !gender || !governorate || !lastSeen || !details || !phoneNumber || !reporterName) {
+      Swal.fire({
+        icon: "error",
+        title: "خطأ",
+        text: "من فضلك املأ جميع الحقول",
+        confirmButtonText: "حسناً",
+      });
+      return;
+    }
+    // ✅ تجهيز الكائن لحفظه
+    const newPerson = {
+      id: Date.now(),
+      personImage: personImage,
+      personName,
+      age,
+      gender,
+      governorate,
+      lastSeen,
+      details,
+      phoneNumber,
+      reporterName,
+      reportDate: new Date().toISOString()
+    };
+
+    // جلب البيانات القديمة من LocalStorage وحفظ الجديد
+    const existingData = JSON.parse(localStorage.getItem("missingPeople")) || [];
+    localStorage.setItem("missingPeople", JSON.stringify([...existingData, newPerson]));
+
     // نجاح
     Swal.fire({
       icon: "success",
@@ -117,6 +126,18 @@ function Form() {
       confirmButtonText: "حسناً",
     });
 
+    // مسح الحقول بعد الإرسال
+    setPersonImage(null);
+    setPersonName("");
+    setAge("");
+    setGender("");
+    setGovernorate("");
+    setLastSeen("");
+    setDetails("");
+    setPhoneNumber("");
+    setReporterName("");
+
+    // الانتقال بعد ثانيتين
     setTimeout(() => navigate("/missing"), 1000);
   };
 
@@ -124,14 +145,11 @@ function Form() {
     <section>
       <div className="container-fluid my-5">
         <h2 className="text-center my-4 fw-bold">تقديم بلاغ مفقود</h2>
-
         <form
           onSubmit={handleSubmit}
           encType="multipart/form-data"
-          className="bg-white p-4 shadow-lg w-75 rounded m-auto"
-          noValidate
+          className="bg-white p-4 shadow-lg w-75 rounded mx-auto"
         >
-
           {/* صورة الشخص */}
           <div className="mb-3">
             <label htmlFor="personImage" className="form-label">ارفع صورة للشخص</label>
@@ -141,7 +159,6 @@ function Form() {
               id="personImage"
               accept="image/*"
               onChange={handleImageChange}
-              re
             />
           </div>
 
@@ -155,7 +172,6 @@ function Form() {
                 id="personName"
                 placeholder="ادخل اسم الشخص"
                 value={personName}
-                required
                 onChange={(e) => setPersonName(letterOnly(e.target.value))}
               />
             </div>
@@ -171,7 +187,6 @@ function Form() {
                 min="1"
                 max="120"
                 value={age}
-                required
                 onChange={(e) => setAge(numberOnly(e.target.value))}
               />
             </div>
@@ -185,28 +200,24 @@ function Form() {
                 className="form-check-input"
                 type="radio"
                 name="gender"
-                id="male"
                 value="ذكر"
                 checked={gender === "ذكر"}
                 onChange={(e) => setGender(e.target.value)}
               />
-              <label className="form-check-label" htmlFor="male">ذكر</label>
+              <label className="form-check-label">ذكر</label>
             </div>
-
             <div className="form-check form-check-inline">
               <input
                 className="form-check-input"
                 type="radio"
                 name="gender"
-                id="female"
                 value="أنثى"
                 checked={gender === "أنثى"}
                 onChange={(e) => setGender(e.target.value)}
               />
-              <label className="form-check-label" htmlFor="female">أنثى</label>
+              <label className="form-check-label">أنثى</label>
             </div>
           </div>
-
 
           {/* المحافظة */}
           <div className="mb-3">
@@ -215,7 +226,6 @@ function Form() {
               id="governorate"
               className="form-select"
               value={governorate}
-              required
               onChange={(e) => setGovernorate(e.target.value)}
             >
               <option value="">اختر المحافظة</option>
@@ -234,7 +244,6 @@ function Form() {
               id="lastSeen"
               placeholder="مثال: محطة رمسيس - القاهرة"
               value={lastSeen}
-              required
               onChange={(e) => setLastSeen(letterOnly(e.target.value))}
             />
           </div>
@@ -248,7 +257,6 @@ function Form() {
               rows="3"
               placeholder="الملابس، وقت الفقد، ملاحظات..."
               value={details}
-              required
               onChange={(e) => setDetails(letterOnly(e.target.value))}
             />
           </div>
@@ -262,7 +270,6 @@ function Form() {
               id="phoneNumber"
               placeholder="01XXXXXXXXX"
               value={phoneNumber}
-              required
               maxLength="11"
               onChange={(e) => setPhoneNumber(numberOnly(e.target.value))}
             />
@@ -277,15 +284,14 @@ function Form() {
               id="reporterName"
               placeholder="ادخل اسمك"
               value={reporterName}
-              required
               onChange={(e) => setReporterName(letterOnly(e.target.value))}
             />
           </div>
 
           {/* الزرار */}
-          <div className="align-items-center justify-content-center w-100 d-flex">
-            <button type="submit" className="btn w-50 btn-main" aria-label="إرسال البلاغ">
-              إرسال البلاغ <i className="fa-solid fa-paper-plane me-2"></i>
+          <div className="text-center">
+            <button type="submit" className="btn btn-main w-50">
+              إرسال البلاغ <i className="fa-solid fa-paper-plane ms-2"></i>
             </button>
           </div>
 
