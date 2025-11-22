@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "../assets/css/Details.css";
 
 function PersonDetails() {
     const navigate = useNavigate();
@@ -26,9 +25,9 @@ function PersonDetails() {
         ? new Date(person.reportDate).toLocaleDateString("ar-EG", { year: "numeric", month: "long", day: "numeric" })
         : "";
     return (
-        <section style={{ marginTop: "150px" }}>
+        <section style={{ marginTop: "130px" }}>
             <div className="container mt-5">
-                <div className="card border-0 mt-5 p-4 shadow-lg rounded-4">
+                <div className="card border-0 my-5 p-4 shadow-lg rounded-4">
 
                     <div className="row g-4 align-items-center">
 
@@ -37,9 +36,9 @@ function PersonDetails() {
                             <div className="p-3 bg-success-subtle rounded-4 shadow-sm">
                                 <img
                                     src={person.personImage}
-                                    alt="صورة المفقود"
+                                    alt={person.personName}
                                     className="img-fluid rounded-4"
-                                    style={{ maxHeight: "330px", objectFit: "cover" }}
+                                    style={{ objectFit: "cover" }}
                                 />
                             </div>
                         </div>
@@ -61,7 +60,7 @@ function PersonDetails() {
                                     </button>
                                 </div>
                                 <div className="info-item mb-2">
-                                    <strong className="text-dark">الاسم:</strong> {person.personName}
+                                    <strong className="text-dark">الاسم:</strong> <span className="fw-semibold">{person.personName}</span>
                                 </div>
 
                                 <div className="info-item mb-2">
@@ -69,28 +68,27 @@ function PersonDetails() {
                                 </div>
 
                                 <div className="info-item mb-2">
-                                    <strong className="text-dark">النوع:</strong> {person.gender}
+                                    <strong className="text-dark">النوع:</strong> <span className="fw-semibold">{person.gender}</span>
                                 </div>
 
                                 <div className="info-item mb-2">
-                                    <strong className="text-dark">آخر مكان شوهد فيه:</strong> {person.lastSeen}
+                                    <strong className="text-dark">آخر مكان شوهد فيه:</strong> <span className="fw-semibold">{person.lastSeen}</span>
                                 </div>
 
                                 <div className="info-item mb-2">
-                                    <strong className="text-dark">تفاصيل إضافية:</strong> {person.details}
+                                    <strong className="text-dark">تفاصيل إضافية:</strong> <span className="fw-semibold">{person.details}</span>
                                 </div>
 
                                 <div className="info-item mb-2">
-                                    <strong className="text-dark">رقم التواصل:</strong> {person.phoneNumber}
+                                    <strong className="text-dark">رقم التواصل:</strong> <span className="fw-semibold">{person.phoneNumber}</span>
                                 </div>
 
                                 <div className="info-item mb-2">
-                                    <strong className="text-dark">تاريخ الإبلاغ:</strong> {formattedDate}
+                                    <strong className="text-dark">تاريخ الإبلاغ:</strong> <span className="fw-semibold">{formattedDate}</span>
                                 </div>
 
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
