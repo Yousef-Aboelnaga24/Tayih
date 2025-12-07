@@ -10,7 +10,7 @@ const governorates = [
   "جنوب سيناء", "كفر الشيخ", "مطروح", "الأقصر", "قنا", "شمال سيناء", "سوهاج"
 ];
 
-function Form() {
+export default function Form() {
   const navigate = useNavigate();
 
   // ✅ جلب البيانات من LocalStorage لو موجودة
@@ -149,11 +149,28 @@ function Form() {
       <div className="container-fluid my-5">
         <h2 className="text-center my-4 fw-bold text-success">تقديم بلاغ مفقود</h2>
         <form
-          onSubmit={handleSubmit}
+          method="post"
           encType="multipart/form-data"
+          onSubmit={handleSubmit}
           className="bg-white p-4 shadow-lg w-75 rounded mx-auto"
           id="reportForm"
+          noValidate
         >
+          {/* حالة المفقود */}
+          <div class="mb-3">
+            <label htmlFor="" class="form-label">حالة المفقود</label>
+            <select
+              className="form-select"
+              name=""
+              id=""
+            >
+              <option selected>Select one</option>
+              <option value="">مفقود منك</option>
+              <option value="">عُثرت عليه</option>
+            </select>
+          </div>
+
+
           {/* صورة الشخص */}
           <div className="mb-3">
             <label htmlFor="personImage" className="form-label">ارفع صورة للشخص</label>
@@ -163,6 +180,7 @@ function Form() {
               id="personImage"
               accept="image/*"
               onChange={handleImageChange}
+              required
             />
           </div>
 
@@ -177,6 +195,7 @@ function Form() {
                 placeholder="ادخل اسم الشخص"
                 value={personName}
                 onChange={(e) => setPersonName(letterOnly(e.target.value))}
+                required
               />
             </div>
 
@@ -192,6 +211,7 @@ function Form() {
                 max="120"
                 value={age}
                 onChange={(e) => setAge(numberOnly(e.target.value))}
+                required
               />
             </div>
           </div>
@@ -231,12 +251,36 @@ function Form() {
               className="form-select"
               value={governorate}
               onChange={(e) => setGovernorate(e.target.value)}
+              required
             >
               <option value="">اختر المحافظة</option>
               {governorates.map((gov) => (
                 <option key={gov} value={gov}>{gov}</option>
               ))}
             </select>
+          </div>
+
+          <div className="row">
+            {/* تاريخ التغيب */}
+            <div className="mb-3 col-sm-6">
+              <label htmlFor="date" className="form-label">تاريخ التغيب</label>
+              <input type="date" className="form-control" id="date" value="" required />
+            </div>
+
+            {/* الحالة الصحية */}
+            <div className="mb-3 col-sm-6">
+              <label htmlFor="" className="form-label">الحالة الصحية</label>
+              <select
+                className="form-select"
+                name=""
+                id=""
+              >
+                <option selected>اختر الحالة</option>
+                <option value="">سليم صحياً</option>
+                <option value="">يعاني من اضطرابات نفسية</option>
+                <option value="">لديه إعاقة جسدية</option>
+              </select>
+            </div>
           </div>
 
           {/* آخر مكان شوهد فيه */}
@@ -304,5 +348,3 @@ function Form() {
     </section>
   );
 }
-
-export default Form;

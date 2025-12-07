@@ -1,10 +1,24 @@
 import { Link } from "react-router-dom";
-import '../assets/css/Navbar.css'
+import { useState } from "react";
+import "../assets/css/Navbar.css";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-        <div className="container">
+    <>
+      <nav className="navbar navbar-light fixed-top px-3 d-flex justify-content-between">
+        <div className="container-fluid">
+          {/* Toggler on the RIGHT */}
+          <button
+            className="btn"
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Navigation Toggler"
+          >
+            <i className="fas fa-bars fs-4"></i>
+          </button>
+
           {/* Logo */}
           <Link className="navbar-brand fw-bold" to="/">
             <img
@@ -14,54 +28,77 @@ function Navbar() {
               className="logo"
             />
           </Link>
-
-          {/* Toggler */}
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navContent"
-            aria-label="Navigation Toggler"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          {/* Links */}
-          <div className="collapse navbar-collapse" id="navContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-              <li className="nav-item">
-                <Link className="nav-link active fw-semibold" to="/">
-                  <i className="fa fa-home me-1"></i> الرئيسية
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link fw-semibold" to="/report">
-                  <i className="fas fa-exclamation-circle me-1"></i> بلاغ جديد
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link fw-semibold" to="/missing">
-                  <i className="fas fa-address-card me-1"></i> المفقودين
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link fw-semibold" to="/contact">
-                  <i className="fa fa-envelope me-1"></i> التواصل
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link fw-semibold" to="/about">
-                  <i className="fas fa-users me-1"></i> من نحن
-                </Link>
-              </li>
-            </ul>
-
-            <Link to="/login" className="btn btn-success px-3 ms-lg-3">
-              <i className="fas fa-sign-in-alt me-1"></i> تسجيل الدخول
-            </Link>
-          </div>
         </div>
       </nav>
+
+      {/* Sidebar */}
+      <div className={`position-fixed top-0 vh-100 d-flex flex-column sidebar  ${open ? "active" : ""}`} id="sidebar">
+        <div className="sidebar-header mb-3 d-flex justify-content-between align-items-center">
+          <h5 className="sidebar-title text-light fs-4 m-0">القائمة الرئيسية</h5>
+
+          <button
+            className="btn rounded-pill d-flex justify-content-center align-items-center sidebar-close-btn"
+            aria-label="إغلاق القائمة"
+            onClick={() => setOpen(false)}
+          >
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
+
+        <ul className="navbar-nav gap-2 mt-3">
+
+          <li className="nav-item">
+            <Link className="nav-link fw-semibold" to="/" onClick={() => setOpen(false)}>
+              <i className="fa fa-home ms-2"></i> الرئيسية
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link fw-semibold" to="/report" onClick={() => setOpen(false)}>
+              <i className="fas fa-exclamation-circle ms-2"></i> بلاغ جديد
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link fw-semibold" to="/missing" onClick={() => setOpen(false)}>
+              <i className="fas fa-address-card ms-2"></i> المفقودين
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link fw-semibold" to="/parent-awareness" onClick={() => setOpen(false)}>
+              <i className="fas fa-hand-holding-heart ms-2"></i> توعية الأهالي
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link fw-semibold" to="/contact" onClick={() => setOpen(false)}>
+              <i className="fa fa-envelope ms-2"></i> التواصل
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link fw-semibold" to="/about" onClick={() => setOpen(false)}>
+              <i className="fas fa-users ms-2"></i> من نحن
+            </Link>
+          </li>
+        </ul>
+
+        <Link
+          to="/login"
+          className="btn btn-success d-flex justify-content-center align-items-center w-100 mt-3"
+          onClick={() => setOpen(false)}
+        >
+          <i className="fas fa-sign-in-alt ms-2"></i> تسجيل الدخول
+        </Link>
+      </div>
+
+      {/* Overlay */}
+      <div
+        className={`position-fixed top-0 end-0 w-100 h-100 sidebar-overlay ${open ? "active" : ""}`}
+        onClick={() => setOpen(false)}
+      ></div>
+    </>
   );
 }
 
