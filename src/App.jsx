@@ -15,7 +15,7 @@ import MissingSec from "./pages/Missing";
 import Form from "./pages/Form";
 import Contact from "./pages/Contact";
 import PersonDetails from "./pages/Details";
-import Reco from "./pages/Awareness"
+import ParentAwareness from "./pages/Awareness"
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
@@ -57,7 +57,7 @@ function App() {
         <Route path="/missing" element={<Layout showFooter={false}><MissingSec /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
         <Route path="/details/:id" element={<Layout showFooter={false}><PersonDetails /></Layout>} />
-        <Route path="/parent-awareness" element={<Layout showFooter={false}><Reco /></Layout>} />
+        <Route path="/parent-awareness" element={<Layout showFooter={false}><ParentAwareness /></Layout>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
