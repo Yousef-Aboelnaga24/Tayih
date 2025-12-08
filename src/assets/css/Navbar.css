@@ -94,13 +94,11 @@
 /* Login Button */
 .btn-success {
     gap: 8px;
-    padding: 10px;
     font-weight: 600;
     transition: var(--transition);
 }
 
 .btn-success:hover {
-    background: var(--primary-dark);
     color: var(--white);
     transform: translateY(-2px);
 }
