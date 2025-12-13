@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import "../assets/css/Awareness.css";
 
 export default function ParentAwareness() {
@@ -105,13 +104,6 @@ export default function ParentAwareness() {
 
   return (
     <section className="parent-awareness-page">
-      <Helmet>
-        <meta
-          name="description"
-          content="دليل شامل للتعامل مع الأطفال بحرص ووعي، لحمايتهم من الضياع والمخاطر."
-        />
-      </Helmet>
-
       {/* Header */}
       <header className="section-header text-white text-center">
         <div className="container">
