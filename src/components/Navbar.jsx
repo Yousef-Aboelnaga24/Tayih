@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-light fixed-top px-3 d-flex justify-content-between">
+      <nav className="navbar navbar-light shadow fixed-top px-3 d-flex justify-content-between">
         <div className="container-fluid">
           {/* Toggler on the RIGHT */}
           <button
@@ -22,8 +22,8 @@ function Navbar() {
           {/* Logo */}
           <Link className="navbar-brand fw-bold" to="/">
             <img
-              src="/image/logo-3.png"
-              fetchpriority="high"
+              src="/image/logo.webp"
+              loading="eager"
               alt="شعار-تائه"
               className="logo"
             />

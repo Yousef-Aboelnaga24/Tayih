@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "../assets/css/Form.css";
@@ -13,7 +13,6 @@ const governorates = [
 export default function Form() {
   const navigate = useNavigate();
 
-  // ✅ جلب البيانات من LocalStorage لو موجودة
   const [personImage, setPersonImage] = useState(null);
   const [personName, setPersonName] = useState("");
   const [age, setAge] = useState("");
@@ -24,17 +23,14 @@ export default function Form() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [reporterName, setReporterName] = useState("");
 
-  useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem("missingPeople")) || [];
-    console.log("البيانات الحالية في LocalStorage:", savedData);
-  }, []);
+  // الحقول الجديدة
+  const [missingStatus, setMissingStatus] = useState("");
+  const [healthStatus, setHealthStatus] = useState("");
+  const [missingDate, setMissingDate] = useState("");
 
-  // فقط حروف عربية ومسافات
   const letterOnly = (value) => value.replace(/[^\u0621-\u064A\s]/g, "");
-  // فقط أرقام
   const numberOnly = (value) => value.replace(/[^0-9]/g, "");
 
-  // رفع الصورة مع التحقق
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -53,47 +49,14 @@ export default function Form() {
     const reader = new FileReader();
     reader.onloadend = () => {
       setPersonImage(reader.result);
-      localStorage.setItem("previewImagePerson", reader.result);
     };
     reader.readAsDataURL(file);
   };
 
-
-  // إرسال النموذج
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!personImage) {
-      Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ارفع صورة ", confirmButtonText: "حسناً", }); return;
-    }
-
-    if (!personName) {
-      Swal.fire({ icon: "error", title: "خطأ", text: "من فضلك ادخل اسم المفقود", confirmButtonText: "حسناً", }); return;
-    }
-
-    const ageNum = Number(age);
-    if (isNaN(ageNum) || ageNum < 1 || ageNum > 120) {
-      Swal.fire({
-        icon: "error",
-        title: "خطأ",
-        text: "الرجاء إدخال عمر صحيح بين 1 و 120",
-        confirmButtonText: "حسناً",
-      });
-      return;
-    }
-
-    if (!/^0\d{10}$/.test(phoneNumber)) {
-      Swal.fire({
-        icon: "error",
-        title: "خطأ",
-        text: "رقم الهاتف يجب أن يبدأ بـ 0 ويتكون من 11 رقمًا",
-        confirmButtonText: "حسناً",
-      });
-      return;
-    }
-
-    // التحقق من الحقول
-    if (!personImage || !personName || !age || !gender || !governorate || !lastSeen || !details || !phoneNumber || !reporterName) {
+    if (!personImage || !personName || !age || !gender || !governorate || !lastSeen || !details || !phoneNumber || !reporterName || !missingStatus || !healthStatus || !missingDate) {
       Swal.fire({
         icon: "error",
         title: "خطأ",
@@ -102,10 +65,21 @@ export default function Form() {
       });
       return;
     }
-    // ✅ تجهيز الكائن لحفظه
+
+    const ageNum = Number(age);
+    if (isNaN(ageNum) || ageNum < 1 || ageNum > 120) {
+      Swal.fire({ icon: "error", title: "خطأ", text: "الرجاء إدخال عمر صحيح بين 1 و 120", confirmButtonText: "حسناً" });
+      return;
+    }
+
+    if (!/^0\d{10}$/.test(phoneNumber)) {
+      Swal.fire({ icon: "error", title: "خطأ", text: "رقم الهاتف يجب أن يبدأ بـ 0 ويتكون من 11 رقمًا", confirmButtonText: "حسناً" });
+      return;
+    }
+
     const newPerson = {
       id: Date.now(),
-      personImage: personImage,
+      personImage,
       personName,
       age,
       gender,
@@ -114,14 +88,15 @@ export default function Form() {
       details,
       phoneNumber,
       reporterName,
+      missingStatus,
+      healthStatus,
+      missingDate,
       reportDate: new Date().toISOString()
     };
 
-    // جلب البيانات القديمة من LocalStorage وحفظ الجديد
     const existingData = JSON.parse(localStorage.getItem("missingPeople")) || [];
     localStorage.setItem("missingPeople", JSON.stringify([...existingData, newPerson]));
 
-    // نجاح
     Swal.fire({
       icon: "success",
       title: "تم إضافة البلاغ",
@@ -129,7 +104,7 @@ export default function Form() {
       confirmButtonText: "حسناً",
     });
 
-    // مسح الحقول بعد الإرسال
+    // مسح الحقول
     setPersonImage(null);
     setPersonName("");
     setAge("");
@@ -139,206 +114,107 @@ export default function Form() {
     setDetails("");
     setPhoneNumber("");
     setReporterName("");
+    setMissingStatus("");
+    setHealthStatus("");
+    setMissingDate("");
 
-    // الانتقال بعد ثانيتين
     setTimeout(() => navigate("/missing"), 1000);
   };
 
   return (
-    <section style={{ marginTop: "110px" }}>
-      <div className="container-fluid my-5">
-        <h2 className="text-center my-4 fw-bold text-success">تقديم بلاغ مفقود</h2>
-        <form
-          method="post"
-          encType="multipart/form-data"
-          onSubmit={handleSubmit}
-          className="bg-white p-4 shadow-lg w-75 rounded mx-auto"
-          id="reportForm"
-          noValidate
-        >
-          {/* حالة المفقود */}
-          <div class="mb-3">
-            <label htmlFor="" class="form-label">حالة المفقود</label>
-            <select
-              className="form-select"
-              name=""
-              id=""
-            >
-              <option selected>Select one</option>
-              <option value="">مفقود منك</option>
-              <option value="">عُثرت عليه</option>
-            </select>
-          </div>
-
+    <section style={{ marginTop: "100px" }}>
+      <div className="container my-5">
+        <h2 className="text-center mb-4 fw-bold text-success">تقديم بلاغ مفقود</h2>
+        <form onSubmit={handleSubmit} className="bg-white p-4 shadow rounded mx-auto w-75" id="reportForm" noValidate>
 
           {/* صورة الشخص */}
           <div className="mb-3">
-            <label htmlFor="personImage" className="form-label">ارفع صورة للشخص</label>
-            <input
-              type="file"
-              className="form-control"
-              id="personImage"
-              accept="image/*"
-              onChange={handleImageChange}
-              required
-            />
+            <label className="form-label">ارفع صورة للشخص</label>
+            <input type="file" className="form-control" accept="image/*" onChange={handleImageChange} required />
           </div>
 
-          <div className="row">
-            {/* الاسم */}
-            <div className="mb-3 col-sm-6">
-              <label htmlFor="personName" className="form-label">اسم الشخص</label>
-              <input
-                type="text"
-                className="form-control"
-                id="personName"
-                placeholder="ادخل اسم الشخص"
-                value={personName}
-                onChange={(e) => setPersonName(letterOnly(e.target.value))}
-                required
-              />
+          {/* الاسم والعمر */}
+          <div className="row mb-3">
+            <div className="col-sm-6 mb-3">
+              <label className="form-label">اسم الشخص</label>
+              <input type="text" className="form-control" placeholder="ادخل اسم الشخص" value={personName} onChange={(e) => setPersonName(letterOnly(e.target.value))} required />
             </div>
-
-            {/* العمر */}
-            <div className="mb-3 col-sm-6">
-              <label htmlFor="age" className="form-label">العمر</label>
-              <input
-                type="number"
-                className="form-control"
-                id="age"
-                placeholder="ادخل عمر الشخص"
-                min="1"
-                max="120"
-                value={age}
-                onChange={(e) => setAge(numberOnly(e.target.value))}
-                required
-              />
+            <div className="col-sm-6 mb-3">
+              <label className="form-label">العمر</label>
+              <input type="number" className="form-control" placeholder="ادخل العمر" min="1" max="120" value={age} onChange={(e) => setAge(numberOnly(e.target.value))} required />
             </div>
           </div>
 
-          {/* النوع */}
+          {/* النوع والمحافظة */}
           <div className="mb-3">
             <label className="form-label d-block">النوع</label>
             <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="gender"
-                value="ذكر"
-                checked={gender === "ذكر"}
-                onChange={(e) => setGender(e.target.value)}
-              />
+              <input className="form-check-input" type="radio" name="gender" value="ذكر" checked={gender === "ذكر"} onChange={(e) => setGender(e.target.value)} />
               <label className="form-check-label">ذكر</label>
             </div>
             <div className="form-check form-check-inline">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="gender"
-                value="أنثى"
-                checked={gender === "أنثى"}
-                onChange={(e) => setGender(e.target.value)}
-              />
+              <input className="form-check-input" type="radio" name="gender" value="أنثى" checked={gender === "أنثى"} onChange={(e) => setGender(e.target.value)} />
               <label className="form-check-label">أنثى</label>
             </div>
           </div>
 
-          {/* المحافظة */}
           <div className="mb-3">
-            <label htmlFor="governorate" className="form-label">المحافظة</label>
-            <select
-              id="governorate"
-              className="form-select"
-              value={governorate}
-              onChange={(e) => setGovernorate(e.target.value)}
-              required
-            >
+            <label className="form-label">المحافظة</label>
+            <select className="form-select" value={governorate} onChange={(e) => setGovernorate(e.target.value)} required>
               <option value="">اختر المحافظة</option>
-              {governorates.map((gov) => (
-                <option key={gov} value={gov}>{gov}</option>
-              ))}
+              {governorates.map((gov) => <option key={gov} value={gov}>{gov}</option>)}
             </select>
           </div>
 
-          <div className="row">
-            {/* تاريخ التغيب */}
-            <div className="mb-3 col-sm-6">
-              <label htmlFor="date" className="form-label">تاريخ التغيب</label>
-              <input type="date" className="form-control" id="date" value="" required />
-            </div>
-
-            {/* الحالة الصحية */}
-            <div className="mb-3 col-sm-6">
-              <label htmlFor="" className="form-label">الحالة الصحية</label>
-              <select
-                className="form-select"
-                name=""
-                id=""
-              >
-                <option selected>اختر الحالة</option>
-                <option value="">سليم صحياً</option>
-                <option value="">يعاني من اضطرابات نفسية</option>
-                <option value="">لديه إعاقة جسدية</option>
+          {/* حالة المفقود + الحالة الصحية + تاريخ التغيب */}
+          <div className="row mb-3">
+            <div className="col-sm-4 mb-3">
+              <label className="form-label">حالة المفقود</label>
+              <select className="form-select" value={missingStatus} onChange={(e) => setMissingStatus(e.target.value)} required>
+                <option value="">اختر الحالة</option>
+                <option value="مفقود">مفقود</option>
+                <option value="عُثر عليه">عُثر عليه</option>
               </select>
             </div>
+            <div className="col-sm-4 mb-3">
+              <label className="form-label">الحالة الصحية</label>
+              <select className="form-select" value={healthStatus} onChange={(e) => setHealthStatus(e.target.value)} required>
+                <option value="">اختر الحالة</option>
+                <option value="سليم صحياً">سليم صحياً</option>
+                <option value="يعاني من اضطرابات نفسية">يعاني من اضطرابات نفسية</option>
+                <option value="لديه إعاقة جسدية">لديه إعاقة جسدية</option>
+              </select>
+            </div>
+            <div className="col-sm-4 mb-3">
+              <label className="form-label">تاريخ التغيب</label>
+              <input type="date" className="form-control" value={missingDate} onChange={(e) => setMissingDate(e.target.value)} required />
+            </div>
           </div>
 
-          {/* آخر مكان شوهد فيه */}
+          {/* مكان وتفاصيل */}
           <div className="mb-3">
-            <label htmlFor="lastSeen" className="form-label">آخر مكان شوهد فيه</label>
-            <input
-              type="text"
-              className="form-control"
-              id="lastSeen"
-              placeholder="مثال: محطة رمسيس - القاهرة"
-              value={lastSeen}
-              onChange={(e) => setLastSeen(letterOnly(e.target.value))}
-            />
+            <label className="form-label">آخر مكان شوهد فيه</label>
+            <input type="text" className="form-control" placeholder="مثال: محطة رمسيس - القاهرة" value={lastSeen} onChange={(e) => setLastSeen(letterOnly(e.target.value))} />
           </div>
 
-          {/* تفاصيل إضافية */}
           <div className="mb-3">
-            <label htmlFor="details" className="form-label">تفاصيل إضافية</label>
-            <textarea
-              className="form-control"
-              id="details"
-              rows="3"
-              placeholder="الملابس، وقت الفقد، ملاحظات..."
-              value={details}
-              onChange={(e) => setDetails(letterOnly(e.target.value))}
-            />
+            <label className="form-label">تفاصيل إضافية</label>
+            <textarea className="form-control" rows="3" placeholder="الملابس، وقت الفقد، ملاحظات..." value={details} onChange={(e) => setDetails(letterOnly(e.target.value))} />
           </div>
 
-          {/* رقم الهاتف */}
+          {/* رقم الهاتف والمبلغ */}
           <div className="mb-3">
-            <label htmlFor="phoneNumber" className="form-label">رقم الهاتف للتواصل</label>
-            <input
-              type="tel"
-              className="form-control"
-              id="phoneNumber"
-              placeholder="01XXXXXXXXX"
-              value={phoneNumber}
-              maxLength="11"
-              onChange={(e) => setPhoneNumber(numberOnly(e.target.value))}
-            />
+            <label className="form-label">رقم الهاتف للتواصل</label>
+            <input type="tel" className="form-control" placeholder="01XXXXXXXXX" value={phoneNumber} maxLength="11" onChange={(e) => setPhoneNumber(numberOnly(e.target.value))} />
           </div>
 
-          {/* اسم المُبلغ */}
           <div className="mb-4">
-            <label htmlFor="reporterName" className="form-label">اسم المُبلّغ</label>
-            <input
-              type="text"
-              className="form-control"
-              id="reporterName"
-              placeholder="ادخل اسمك"
-              value={reporterName}
-              onChange={(e) => setReporterName(letterOnly(e.target.value))}
-            />
+            <label className="form-label">اسم المبلغ</label>
+            <input type="text" className="form-control" placeholder="ادخل اسمك" value={reporterName} onChange={(e) => setReporterName(letterOnly(e.target.value))} />
           </div>
 
-          {/* الزرار */}
           <div className="text-center">
-            <button type="submit" className="btn fw-bold rounded-3 p-2 btn-main">
+            <button type="submit" className="btn btn-main fw-bold rounded-3 p-2">
               إرسال البلاغ <i className="fa-solid fa-paper-plane ms-2"></i>
             </button>
           </div>

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import '../assets/css/Hero.css'
 
 function Hero() {
     const saved = JSON.parse(localStorage.getItem("missingPeople")) || [];
@@ -18,8 +17,8 @@ function Hero() {
                         </p>
                         <p className="mt-3">
                             <i
-                                className="fa fa-triangle-exclamation"
-                                style={{ color: "#ff3d3d" }}
+                                className="fa fa-triangle-exclamation text-danger"
+                            // style={{ color: "#ff3d3d" }}
                             ></i>{" "}
                             عدد البلاغات{" "}
                             <span className="fw-bold">

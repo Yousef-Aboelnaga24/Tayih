@@ -4,29 +4,30 @@ body {
 
 #reportForm {
   background: #fff;
+  padding: 20px;
 }
 
-.form-control,.form-select {
+.form-control, .form-select, textarea {
   border: 2px solid #e6e6e6;
   border-radius: 8px;
   padding: 10px;
   transition: all 0.3s ease;
 }
 
-.form-control:focus,
-.form-select:focus {
-  border-color: #09906F;
+.form-control:focus, .form-select:focus, textarea:focus {
+  border-color: #09906f;
+  box-shadow: 0 0 5px rgba(9, 144, 111, 0.5);
 }
 
 .btn-main {
-  background: linear-gradient(135deg, #09906F, #0aa380);
+  background: linear-gradient(135deg, #09906f, #0aa380);
   color: #fff !important;
   font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 
 .btn-main:hover {
-  background: linear-gradient(135deg, #077d60, #09906F);
+  background: linear-gradient(135deg, #077d60, #09906f);
   transform: translateY(-2px);
 }
 

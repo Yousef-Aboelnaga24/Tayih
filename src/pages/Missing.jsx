@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/Missing.css"
 
-function Missing() {
+export default function Missing() {
   const [people, setPeople] = useState([]);
   const navigate = useNavigate();
 
@@ -80,5 +80,3 @@ function Missing() {
     </section>
   );
 }
-
-export default Missing;

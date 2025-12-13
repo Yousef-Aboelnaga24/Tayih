@@ -207,12 +207,13 @@ export default function ParentAwareness() {
           </div>
 
           <div className="text-center">
-            <button
+            <a
+              href=""
               className="btn rounded-3 fw-bold text-white d-inline-flex align-items-center justify-content-center gap-2 mt-4 btn-download"
               aria-label="تحميل الدليل الكامل للطفل السليم بصيغة PDF"
             >
               <i className="fas fa-file-pdf"></i> تحميل الدليل الكامل للطفل السليم (PDF)
-            </button>
+            </a>
           </div>
         </section>
 
@@ -295,12 +296,13 @@ export default function ParentAwareness() {
           </div>
 
           <div className="text-center">
-            <button
+            <a
+              href=""
               className="btn rounded-3 fw-bold text-white d-inline-flex align-items-center justify-content-center gap-2 mt-4 btn-download"
               aria-label="تحميل دليل رعاية وحماية ذوي الاحتياجات الخاصة"
             >
               <i className="fas fa-book-medical"></i> تحميل دليل رعاية وحماية ذوي الاحتياجات
-            </button>
+            </a>
           </div>
         </section>
 
