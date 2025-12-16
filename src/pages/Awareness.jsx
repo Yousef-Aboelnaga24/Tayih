@@ -200,9 +200,10 @@ export default function ParentAwareness() {
 
           <div className="text-center">
             <a
-              href=""
+              href="./files/الطفل السليم.pdf"
               className="btn rounded-3 fw-bold text-white d-inline-flex align-items-center justify-content-center gap-2 mt-4 btn-download"
               aria-label="تحميل الدليل الكامل للطفل السليم بصيغة PDF"
+              download={"الدليل الكامل للطفل السليم"}
             >
               <i className="fas fa-file-pdf"></i> تحميل الدليل الكامل للطفل السليم (PDF)
             </a>
@@ -289,9 +290,10 @@ export default function ParentAwareness() {
 
           <div className="text-center">
             <a
-              href=""
+              href="./files/اطفال ذو الاحتيجات الخاصه.pdf"
               className="btn rounded-3 fw-bold text-white d-inline-flex align-items-center justify-content-center gap-2 mt-4 btn-download"
               aria-label="تحميل دليل رعاية وحماية ذوي الاحتياجات الخاصة"
+              download={"دليل رعاية وحماية ذوي الاحتياجات الخاصة"}
             >
               <i className="fas fa-book-medical"></i> تحميل دليل رعاية وحماية ذوي الاحتياجات
             </a>
