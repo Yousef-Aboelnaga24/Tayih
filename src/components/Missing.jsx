@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "../assets/css/Missing.css"
+import { Link } from "react-router-dom";
+import Card from "./Card";
 
 function Missing() {
-  const navigate = useNavigate();
   const [latestReports, setLatestReports] = useState([]);
 
   useEffect(() => {
@@ -13,76 +12,32 @@ function Missing() {
   }, []);
 
   return (
-    <section className="missing-section py-5 bg-white" style={{ marginTop: "90px" }}>
-      <div className="container">
-        <h2 className="mb-5 text-center text-success fw-bold">
-          <i className="fas fa-users me-2"></i> أحدث البلاغات
-        </h2>
+    <section className="py-24 bg-gray-50/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-dark flex items-center justify-center gap-3">
+            <i className="fas fa-users text-primary"></i> أحدث البلاغات
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary-light to-primary-dark rounded mx-auto mt-4"></div>
+          <p className="mt-4 text-gray-500 text-lg">أحدث الحالات التي تم الإبلاغ عنها مؤخراً عبر المنصة</p>
+        </div>
 
-        <div className="row g-4">
-
-          {latestReports.length === 0 && (
-            <p className="text-center text-muted fs-5">لا توجد بلاغات حتى الآن</p>
-          )}
-
-          {latestReports.map((person) => (
-            <div className="col-lg-4 col-md-6 d-flex" key={person.id}>
-              <div className="card border-0 h-100 shadow rounded-3 flex-fill hover-card">
-
-                {/* صورة الشخص */}
-                <img
-                  src={person.personImage}
-                  className="card-img-top rounded-top person-img"
-                  alt={person.personName}
-                  loading="lazy"
-                />
-
-                <div className="card-body text-center d-flex flex-column justify-content-between">
-
-                  {/* الاسم */}
-                  <h5 className="card-title fw-bold fs-5 mb-2">
-                    <i className="fa-solid fa-user me-1 text-success"></i>
-                    {person.personName}
-                  </h5>
-
-                  {/* العمر */}
-                  <p className="card-text text-muted mb-1">
-                    <i className="fa-solid fa-cake-candles text-warning me-1"></i>
-                    العمر: {person.age} سنة
-                  </p>
-
-                  {/* المحافظة */}
-                  <p className="card-text text-muted mb-1">
-                    <i className="fa-solid fa-location-dot text-danger me-1"></i>
-                    {person.governorate}
-                  </p>
-
-                  {/* تاريخ البلاغ */}
-                  <p className="card-text text-secondary small mb-3">
-                    <i className="fa fa-clock me-1"></i>
-                    {new Date(person.reportDate || Date.now()).toLocaleDateString("ar-EG")}
-                  </p>
-
-                  {/* الزر */}
-                  <button
-                    onClick={() => navigate(`/details/${person.id}`)}
-                    className="btn btn-success rounded-pill mt-2 px-4 btn-hover"
-                  >
-                    <i className="fa-solid fa-circle-info me-1"></i> تفاصيل أكثر
-                  </button>
-                </div>
-
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {latestReports.length === 0 ? (
+            <div className="col-span-full py-16 text-center bg-white rounded-3xl border border-gray-100 shadow-sm">
+                <i className="fas fa-folder-open text-6xl text-gray-200 mb-4 inline-block"></i>
+                <p className="text-gray-500 text-xl font-medium">لا توجد بلاغات حتى الآن</p>
             </div>
-
-          ))}
-
+          ) : (
+            latestReports.map((person) => <Card key={person.id} person={person} />)
+          )}
         </div>
 
         {/* زر الذهاب لقائمة المفقودين */}
-        <div className="text-center mt-5">
-          <Link to="/missing" className="btn btn-success btn-lg px-5 rounded-pill">
-            <i className="fas fa-list-ul me-1"></i> عرض كل المفقودين
+        <div className="text-center mt-14">
+          <Link to="/missing" className="inline-flex items-center gap-3 bg-white text-primary-dark border-2 border-primary-dark/20 hover:border-primary-dark hover:bg-primary-dark hover:text-white px-8 py-3.5 rounded-full font-bold text-lg transition-all duration-300 shadow-sm hover:shadow-xl transform hover:-translate-y-1 group">
+            <i className="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+            عرض كل المفقودين
           </Link>
         </div>
 

@@ -8,7 +8,7 @@ body {
 }
 
 /* Hero Section */
-main{
+main {
   background: linear-gradient(90deg, #00000069, #00000056), url('../image/hero-bg.webp') no-repeat center center/cover;
   height: 100vh;
 }
@@ -84,4 +84,52 @@ h2 {
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.3s ease;
+}
+
+.offline-status-alert,
+.offline-status-online {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  text-align: center;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.offline-status-alert {
+  background-color: #dc3545;
+  color: white;
+}
+
+.offline-status-online {
+  background-color: #198754;
+  color: white;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .offline-status-online {
+    transition: all 0.35s ease-in-out;
+  }
+
+  .offline-status-alert {
+    animation: flash-bg 1.4s ease-in-out 1;
+  }
+}
+
+@keyframes flash-bg {
+
+  0%,
+  100% {
+    background-color: #dc3545;
+  }
+
+  50% {
+    background-color: #c82333;
+  }
 }

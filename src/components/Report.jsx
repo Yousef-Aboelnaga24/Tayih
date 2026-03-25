@@ -2,38 +2,54 @@ import { Link } from "react-router-dom";
 
 function Report() {
     return (
-        <section id="report-section" className="py-5 bg-white">
-            <div className="container">
-                <div className="row align-items-center g-5">
-                    <div className="col-md-6 text-center">
-                        <div>
-                            <img
-                                src="./image/cute-bunny.webp"
-                                loading="lazy"
-                                alt="تبليغ عن مفقود"
-                                className="img-fluid rounded-4 shadow-lg"
-                                style={{ maxHeight: "380px", objectFit: "cover" }}
-                            />
-                        </div>
+        <section id="report-section" className="py-24 bg-gray-50 relative overflow-hidden">
+            {/* Background Decorations */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-dark/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div className="order-2 md:order-1 relative group">
+                        <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-xl transform group-hover:scale-105 transition-all duration-500 -z-10"></div>
+                        <img
+                            src="/image/cute-bunny.webp"
+                            loading="lazy"
+                            alt="تبليغ عن مفقود"
+                            className="w-full max-w-[400px] mx-auto rounded-3xl shadow-xl object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                            style={{ maxHeight: "420px" }}
+                        />
                     </div>
-                    <div className="col-md-6 text-center text-md-start">
-                        <h2 className="fw-bold mb-3 text-success display-6">
-                            هل رأيت شخصاً تائهاً؟
+                    
+                    <div className="order-1 md:order-2 text-center md:text-right">
+                        <div className="inline-flex items-center justify-center p-3 bg-primary/10 text-primary-dark rounded-xl mb-6">
+                            <i className="fas fa-hand-holding-heart text-2xl"></i>
+                        </div>
+                        <h2 className="font-bold mb-6 text-gray-900 text-3xl md:text-4xl lg:text-5xl leading-tight">
+                            هل رأيت شخصاً <span className="text-primary-dark relative">
+                                تائهاً؟
+                                <span className="absolute bottom-0 left-0 w-full h-2 bg-primary/20 rounded -z-10 -rotate-2"></span>
+                            </span>
                         </h2>
-                        <p className="my-4 fs-5 text-muted lh-lg">
-                            ساهم في إعادة المفقودين إلى أسرهم.
-                            <span className="fw-semibold text-dark"> كل معلومة قد تصنع الفارق. </span>
-                            شارك ببلاغك الآن وساعد في إنقاذ حياة.
+                        
+                        <p className="my-6 text-lg text-gray-600 leading-relaxed font-light">
+                            ساهم معنا في إعادة المفقودين إلى أسرهم وزرع الأمل في قلوبهم من جديد. 
+                            كل مساهمة بسيطة قد تكون السبب في نهاية معاناة عائلة كاملة.
                         </p>
+                        
+                        <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 mb-8 inline-block text-right w-full md:w-auto">
+                            <i className="fas fa-quote-right text-3xl text-primary-light/30 mb-2"></i>
+                            <span className="font-semibold text-gray-800 block text-lg"> كل معلومة صغيرة قد تصنع فارقاً حقيقياً في إنقاذ حياة. </span>
+                        </div>
 
-                        {/* الزر المعدل */}
-                        <Link
-                            to="/report"
-                            className="btn btn-success btn-lg px-4 py-2 rounded-pill shadow-sm d-inline-flex align-items-center gap-2"
-                        >
-                            <i className="fas fa-bullhorn"></i>
-                            قدّم بلاغ الآن
-                        </Link>
+                        <div>
+                            <Link
+                                to="/report"
+                                className="inline-flex items-center gap-3 bg-gradient-to-l from-primary-dark to-primary hover:from-primary-darker hover:to-primary-dark text-white px-8 py-4 rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 text-lg font-bold hover:-translate-y-1"
+                            >
+                                <i className="fas fa-bullhorn text-xl"></i>
+                                قدّم البلاغ الآن
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

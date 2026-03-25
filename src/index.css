@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0aa380;
+  --color-primary-dark: #09906f;
+  --color-primary-darker: #05644c;
+  --color-primary-light: #0fd6a4;
+  --color-gray-light: #f8f9fa;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}

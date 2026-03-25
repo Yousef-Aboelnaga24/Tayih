@@ -1,15 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import './App.css'
-import Layout from "./components/Layout";
-
-// Sections
-import Hero from "./components/Hero";
-import Report from "./components/Report";
-import Timeline from "./components/Timeline";
-import Missing from "./components/Missing";
+import Layout from "./components/layout/Layout";
 
 // صفحات منفصلة
+import LandingPage from "./pages/LandingPage";
 import About from "./pages/About";
 import MissingSec from "./pages/Missing";
 import Form from "./pages/Form";
@@ -19,17 +14,7 @@ import ParentAwareness from "./pages/Awareness"
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
-
-function Home() {
-  return (
-    <>
-      <Hero />
-      <Report />
-      <Timeline />
-      <Missing />
-    </>
-  );
-}
+import OfflineAlert from "./pages/OfflineAlert";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -49,9 +34,10 @@ function App() {
   }
 
   return (
-    <Router>
+    <>
+      <OfflineAlert />
       <Routes>
-        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/" element={<Layout><LandingPage /></Layout>} />
         <Route path="/about" element={<Layout showFooter={false}><About /></Layout>} />
         <Route path="/report" element={<Layout showFooter={false}><Form /></Layout>} />
         <Route path="/missing" element={<Layout showFooter={false}><MissingSec /></Layout>} />
@@ -62,7 +48,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 

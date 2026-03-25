@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../assets/css/Missing.css"
+import Card from "../components/Card";
 
 export default function Missing() {
   const [people, setPeople] = useState([]);
@@ -11,71 +11,34 @@ export default function Missing() {
     setPeople(storedPeople);
   }, []);
 
-  const goToDetails = (id) => {
-    navigate(`/details/${id}`);
-  };
-
   return (
-    <section style={{ marginTop: "110px" }}>
-      <div className="container text-center my-4">
-        <h2 className="section-title fs-2 text-success fw-bold border-3 w-25 d-inline border-success border-bottom pb-2">
-          قائمة المفقودين
-        </h2>
-
-        <div className="row g-4 mt-4">
-          {people.length === 0 ? (
-            <p className="text-muted fw-bold">لا يوجد بلاغات بعد.</p>
-          ) : (
-            people.map((person) => (
-              <div key={person.id} className="col-sm-6 col-md-4 col-lg-3 d-flex">
-                <div className="card missing-card h-100 shadow border-0 rounded-3 flex-fill hover-card">
-
-                  {/* صورة الشخص */}
-                  <img
-                    src={person.personImage}
-                    loading="lazy"
-                    className="card-img-top preview rounded-top person-img"
-                    alt={`صورة ${person.personName}`}
-                  />
-
-                  {/* بيانات */}
-                  <div className="card-body text-center d-flex flex-column justify-content-between">
-
-                    {/* الاسم */}
-                    <h5 className="card-title fw-bold fs-5 mb-2">
-                      <i className="fa-solid fa-user me-1 text-success"></i> {person.personName}
-                    </h5>
-
-                    {/* العمر */}
-                    <p className="card-text text-muted mb-1">
-                      <i className="fa-solid fa-cake-candles text-warning me-1"></i> العمر: {person.age} سنة
-                    </p>
-
-                    {/* المحافظة */}
-                    <p className="card-text text-muted mb-1">
-                      <i className="fa-solid fa-location-dot text-danger me-1"></i> {person.governorate}
-                    </p>
-
-                    {/* تاريخ البلاغ */}
-                    <p className="card-text text-secondary small mb-3">
-                      <i className="fa fa-clock me-1"></i>
-                      {new Date(person.reportDate || Date.now()).toLocaleDateString("ar-EG")}
-                    </p>
-
-                    {/* زر التفاصيل */}
-                    <button
-                      onClick={() => goToDetails(person.id)}
-                      className="btn btn-success rounded-pill mt-2 px-4 btn-hover"
-                    >
-                      <i className="fa-solid fa-circle-info me-1"></i> تفاصيل أكثر
-                    </button>
-
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
+    <section className="pt-32 pb-20 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-dark inline-block relative pb-3 border-b-4 border-primary rounded">
+            قائمة المفقودين
+          </h2>
+          <p className="mt-4 text-gray-500 text-lg">نأمل في تعاونكم وتقديم أي مساعدة للوصول إليهم.</p>
         </div>
+
+        {people.length === 0 ? (
+          <div className="py-24 text-center bg-white rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto flex flex-col items-center">
+              <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mb-6">
+                <i className="fas fa-search text-5xl text-gray-300"></i>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-700 mb-2">لا يوجد بلاغات بعد</h3>
+              <p className="text-gray-500 mb-6">لم يتم تسجيل أي بلاغ عن أشخاص مفقودين حتى الآن.</p>
+              <button onClick={() => navigate('/report')} className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full font-medium transition-colors shadow-sm">
+                تقديم أول بلاغ
+              </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {people.map((person) => (
+              <Card key={person.id} person={person} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
