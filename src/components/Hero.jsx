@@ -4,7 +4,7 @@ import Button from "./ui/Button";
 function Hero() {
     const saved = JSON.parse(localStorage.getItem("missingPeople")) || [];
     return (
-        <main className="h-screen bg-cover bg-center bg-no-repeat w-full relative" style={{ backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('/image/hero-bg.webp')" }}>
+        <main className="h-screen bg-cover bg-center bg-no-repeat w-full relative" style={{ backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./image/hero-bg.webp')" }}>
             <section className="flex justify-center items-center text-center h-full w-full px-4 pt-16">
                 <div className="w-full max-w-2xl text-white">
                     <h1 data-aos="zoom-in" data-aos-duration="1000" className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-xl text-white">

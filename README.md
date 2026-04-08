@@ -1,8 +1,8 @@
-# 🚨 Ta2eh - Missing Children Detection Platform
+# 🚨 Tayih - Missing Children Detection Platform
 
 ## 📌 Overview
 
-**Ta2eh** is a web platform designed to help find missing children by allowing users to report cases and search through shared data.
+**Tayih** is a web platform designed to help find missing children by allowing users to report cases and search through shared data.
 
 ---
 
@@ -38,8 +38,8 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ta2eh.git
-cd ta2eh
+git clone https://github.com/your-username/Tayih.git
+cd Tayih
 ```
 
 ### 2. Install dependencies
@@ -59,7 +59,7 @@ npm run dev
 ## 🔗 Project Structure
 
 ```
-Ta2eh/
+Tayih/
 │── frontend (React)
 │── backend (Laravel)
 │── ai-service (Python)

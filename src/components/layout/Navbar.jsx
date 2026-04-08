@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <>
       {/* Desktop/Mobile Navbar */}
-      <nav className="fixed top-0 w-full z-50 px-4 py-2 flex justify-between items-center bg-gradient-to-r from-[#09906f] to-[#05644c]/95 backdrop-blur-md shadow-lg h-20 transition-all">
+      <nav className="fixed top-0 w-full z-50 px-4 py-2 flex justify-between items-center bg-linear-to-r from-primary-dark to-primary-darker/95 backdrop-blur-md shadow-lg h-20 transition-all">
         <div className="w-full mx-auto flex justify-between items-center">
           {/* Toggler on the RIGHT */}
           <button
@@ -22,7 +22,7 @@ function Navbar() {
           {/* Logo */}
           <Link className="flex items-center" to="/">
             <img
-              src="/image/logo.webp"
+              src="./image/logo.webp"
               loading="eager"
               alt="شعار-تائه"
               className="h-16 w-auto object-cover"

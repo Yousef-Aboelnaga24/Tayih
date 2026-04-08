@@ -13,7 +13,7 @@ AOS.init({ once: true })
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <Online> */}
-      <BrowserRouter>
+      <BrowserRouter basename="/Tayih/">
         <App />
       </BrowserRouter>
     {/* </Online> */}

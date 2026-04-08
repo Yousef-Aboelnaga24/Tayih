@@ -12,7 +12,7 @@ function Report() {
                     <div className="order-2 md:order-1 relative group">
                         <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-xl transform group-hover:scale-105 transition-all duration-500 -z-10"></div>
                         <img
-                            src="/image/cute-bunny.webp"
+                            src="./image/cute-bunny.webp"
                             loading="lazy"
                             alt="تبليغ عن مفقود"
                             className="w-full max-w-100 mx-auto rounded-3xl shadow-xl object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
