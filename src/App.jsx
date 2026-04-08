@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Offline } from "react-detect-offline";
 import './App.css'
 import Layout from "./components/layout/Layout";
 
-// صفحات منفصلة
+// Public Pages
 import LandingPage from "./pages/LandingPage";
 import About from "./pages/About";
 import MissingSec from "./pages/Missing";
@@ -11,10 +12,12 @@ import Form from "./pages/Form";
 import Contact from "./pages/Contact";
 import PersonDetails from "./pages/Details";
 import ParentAwareness from "./pages/Awareness"
+// Auth Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+// Alerts
 import NotFound from "./pages/NotFound";
-import OfflineAlert from "./pages/OfflineAlert";
+import OfflineAlert from "./components/OfflineAlert";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,15 +38,21 @@ function App() {
 
   return (
     <>
-      <OfflineAlert />
+      <Offline>
+        <OfflineAlert />
+      </Offline>
+
       <Routes>
-        <Route path="/" element={<Layout><LandingPage /></Layout>} />
-        <Route path="/about" element={<Layout showFooter={false}><About /></Layout>} />
-        <Route path="/report" element={<Layout showFooter={false}><Form /></Layout>} />
-        <Route path="/missing" element={<Layout showFooter={false}><MissingSec /></Layout>} />
-        <Route path="/contact" element={<Layout><Contact /></Layout>} />
-        <Route path="/details/:id" element={<Layout showFooter={false}><PersonDetails /></Layout>} />
-        <Route path="/parent-awareness" element={<Layout showFooter={false}><ParentAwareness /></Layout>} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="report" element={<Form />} />
+          <Route path="missing" element={<MissingSec />} />
+          <Route path="details/:id" element={<PersonDetails />} />
+          <Route path="parent-awareness" element={<ParentAwareness />} />
+        </Route>
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

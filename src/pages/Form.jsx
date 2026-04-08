@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import InputField from "../components/ui/InputField";
 
 const governorates = [
   "القاهرة", "الجيزة", "الإسكندرية", "الدقهلية", "البحر الأحمر", "البحيرة", "الفيوم",
@@ -111,7 +112,7 @@ export default function Form() {
   return (
     <section className="pt-32 pb-20 bg-gray-50 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-primary-dark inline-block relative pb-3 border-b-4 border-primary">
             تقديم بلاغ مفقود
@@ -120,7 +121,7 @@ export default function Form() {
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white p-6 md:p-10 shadow-xl shadow-gray-200/50 rounded-3xl border border-gray-100 relative overflow-hidden" noValidate>
-          
+
           <div className="absolute top-0 left-0 w-32 h-32 bg-primary/5 rounded-br-[100px] pointer-events-none"></div>
 
           {/* صورة الشخص */}
@@ -218,7 +219,7 @@ export default function Form() {
 
           <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 mb-8 mt-2">
             <h4 className="text-lg font-bold text-primary-dark mb-4 flex items-center">
-                <i className="fas fa-address-card ml-2 text-primary"></i> بيانات مقدم البلاغ للاتصال به
+              <i className="fas fa-address-card ml-2 text-primary"></i> بيانات مقدم البلاغ للاتصال به
             </h4>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -234,7 +235,7 @@ export default function Form() {
           </div>
 
           <div className="text-center mt-2">
-            <button type="submit" className="bg-gradient-to-r from-primary-dark to-primary hover:from-primary-darker hover:to-primary text-white font-bold rounded-full py-4 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-1 text-lg w-full md:w-auto inline-flex items-center justify-center gap-3">
+            <button type="submit" className="bg-linear-to-r from-primary-dark to-primary hover:from-primary-darker hover:to-primary text-white font-bold rounded-full py-4 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-1 text-lg w-full md:w-auto inline-flex items-center justify-center gap-3">
               إرسال البلاغ <i className="fa-solid fa-paper-plane"></i>
             </button>
           </div>

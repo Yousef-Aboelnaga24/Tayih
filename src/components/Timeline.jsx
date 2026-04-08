@@ -5,7 +5,7 @@ function Timeline() {
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 inline-block relative">
                         كيف تعمل منصة <span className="text-primary-dark">تائه</span>؟
-                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary-light to-primary-dark rounded-full"></div>
+                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-linear-to-r from-primary-light to-primary-dark rounded-full"></div>
                     </h2>
                 </div>
 
@@ -24,7 +24,7 @@ function Timeline() {
                     {/* Step 2 */}
                     <div className="relative group">
                         <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-xl transform group-hover:scale-105 transition-all duration-500 -z-10"></div>
-                        <div className="h-full p-8 bg-gradient-to-br from-primary-dark to-primary text-white rounded-3xl shadow-lg hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-2 text-center border border-white/10">
+                        <div className="h-full p-8 bg-linear-to-br from-primary-dark to-primary text-white rounded-3xl shadow-lg hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-2 text-center border border-white/10">
                             <div className="w-20 h-20 mx-auto bg-white/20 text-white rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-white group-hover:text-primary-dark transition-all duration-300">
                                 <i className="fas fa-search"></i>
                             </div>
@@ -47,7 +47,7 @@ function Timeline() {
                     {/* Step 4 */}
                     <div className="relative group">
                         <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-xl transform group-hover:scale-105 transition-all duration-500 -z-10"></div>
-                        <div className="h-full p-8 bg-gradient-to-br from-primary-dark to-primary text-white rounded-3xl shadow-lg hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-2 text-center border border-white/10">
+                        <div className="h-full p-8 bg-linear-to-br from-primary-dark to-primary text-white rounded-3xl shadow-lg hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-2 text-center border border-white/10">
                             <div className="w-20 h-20 mx-auto bg-white/20 text-white rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-white group-hover:text-primary-dark transition-all duration-300">
                                 <i className="fas fa-handshake"></i>
                             </div>

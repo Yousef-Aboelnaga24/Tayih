@@ -1,6 +1,5 @@
-
-
 import { Link } from "react-router-dom";
+import Button from "./ui/Button";
 
 function Hero() {
     const saved = JSON.parse(localStorage.getItem("missingPeople")) || [];
@@ -26,24 +25,22 @@ function Hero() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row justify-center gap-5 mt-10">
-                        <Link
-                            to="/report"
-                            data-aos="fade-left"
-                            data-aos-duration="1000"
-                            data-aos-delay="900"
-                            className="px-8 py-3.5 rounded-full bg-primary hover:bg-primary-dark border-2 border-transparent text-white font-bold text-lg shadow-[0_0_20px_rgba(10,163,128,0.4)] hover:shadow-[0_0_30px_rgba(10,163,128,0.6)] transition-all duration-300 transform hover:-translate-y-1"
-                        >
-                            <i className="fas fa-bullhorn ml-2"></i> أبلغ عن مفقود
-                        </Link>
-                        <Link
-                            to="/missing"
-                            data-aos="fade-right"
-                            data-aos-duration="1000"
-                            data-aos-delay="900"
-                            className="px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold text-lg hover:bg-white hover:text-primary-dark shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                        >
-                            <i className="fas fa-search ml-2"></i> ابحث عن شخص
-                        </Link>
+                        <div data-aos="fade-left" data-aos-duration={1000} data-aos-delay={900}>
+                            <Button
+                                path="report"
+                                variant="primary"
+                                label="أبلغ عن مفقود"
+                                icon="bullhorn"
+                            />
+                        </div>
+                        <div data-aos="fade-right" data-aos-duration={1000} data-aos-delay={900}>
+                            <Button
+                                path="missing"
+                                variant="outline"
+                                label="ابحث عن مفقود"
+                                icon="search"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>

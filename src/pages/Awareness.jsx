@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import Button from '../components/ui/Button'
 
 export default function ParentAwareness() {
   const healthyTips = {
@@ -105,7 +104,7 @@ export default function ParentAwareness() {
     <section className="pt-20 bg-gray-50 min-h-screen">
       {/* Header */}
       <header className="bg-primary-darker text-white py-24 relative overflow-hidden text-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-darker/90 to-primary-dark/95"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-primary-darker/90 to-primary-dark/95"></div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg flex justify-center items-center gap-4">
@@ -120,12 +119,12 @@ export default function ParentAwareness() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
+
         {/* الطفل السليم */}
         <section className="mb-24">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-                <i className="fas fa-heartbeat"></i>
+              <i className="fas fa-heartbeat"></i>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">الطفل السليم صحياً</h2>
             <p className="text-gray-500 text-lg">
@@ -193,7 +192,7 @@ export default function ParentAwareness() {
 
           <div className="text-center mt-10">
             <a
-              href="./files/الطفل السليم.pdf"
+              href="./files/child_safety_awareness.pdf"
               className="inline-flex items-center justify-center gap-3 bg-white text-primary-dark border-2 border-primary-dark/20 hover:border-primary px-8 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
               download={"الدليل الكامل للطفل السليم"}
             >
@@ -206,7 +205,7 @@ export default function ParentAwareness() {
         <section className="mb-24 border-t border-gray-200 pt-20">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-                <i className="fas fa-wheelchair"></i>
+              <i className="fas fa-wheelchair"></i>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">طفل من ذوي الاحتياجات الخاصة</h2>
             <p className="text-gray-500 text-lg">
@@ -284,8 +283,8 @@ export default function ParentAwareness() {
 
         {/* الإجراءات الطارئة */}
         <section className="bg-white border-2 border-red-500/20 rounded-[2.5rem] p-8 md:p-14 text-center shadow-2xl shadow-red-500/5 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-full h-2 bg-gradient-to-r from-red-500 to-red-400"></div>
-          
+          <div className="absolute top-0 right-0 w-full h-2 bg-linear-to-r from-red-500 to-red-400"></div>
+
           <h2 className="text-3xl font-bold text-red-600 mb-4 flex justify-center items-center gap-3">
             <i className="fas fa-siren-on text-4xl animate-pulse"></i> خطوات فورية عند فقدان طفل
           </h2>
@@ -306,9 +305,13 @@ export default function ParentAwareness() {
             ))}
           </div>
 
-          <Link to="/report" className="inline-flex items-center justify-center gap-3 bg-gradient-to-l from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white font-bold text-xl px-10 py-5 rounded-full shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/40 transition-all duration-300 transform hover:-translate-y-1 mb-12">
-            <i className="fas fa-bullhorn text-2xl"></i> إطلاق نداء استغاثة الآن
-          </Link>
+          <Button
+            path="report"
+            variant="danger"
+            className="mb-12"
+            label="إطلاق نداء استغاثة الآن"
+            icon="bullhorn"
+          />
 
           <div className="bg-red-50 rounded-2xl p-6 border border-red-100 max-w-3xl mx-auto">
             <h5 className="font-bold text-red-800 mb-4 text-lg">ارقام الطوارئ المهمة في مصر:</h5>

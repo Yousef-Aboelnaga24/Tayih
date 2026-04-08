@@ -1,16 +1,110 @@
-# React + Vite
+# 🚨 Ta2eh - Missing Children Detection Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
 
-Currently, two official plugins are available:
+**Ta2eh** is a web platform designed to help find missing children by allowing users to report cases and search through shared data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🧾 Report missing or found children
+- 🔍 Search and filter cases
+- 📸 Upload images
+- 📱 Responsive design
+- 🚨 Quick report system
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+### Frontend
+
+- React (Vite)
+- Tailwind CSS
+
+### Backend
+
+- Laravel (REST API)
+
+### Database
+
+- MySQL
+
+---
+
+## 🚀 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/ta2eh.git
+cd ta2eh
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔗 Project Structure
+
+```
+Ta2eh/
+│── frontend (React)
+│── backend (Laravel)
+│── ai-service (Python)
+```
+
+---
+
+## 💡 Future Enhancements
+
+- 🧠 **AI Face Recognition (CNN)**
+  Implement advanced image recognition to match missing children.
+
+- 📍 **GPS Tracking System**
+  Add real-time tracking using smart devices.
+
+- 🎯 **Smart Bracelet Integration**
+  Wearable bracelets with QR/GPS for safety.
+
+- 📱 **Mobile Application**
+  Android & iOS apps.
+
+- 📊 **Analytics Dashboard**
+  Insights and statistics.
+
+- 🔐 **Verification System**
+  Prevent fake reports.
+
+---
+
+## 👨‍💻 Team
+
+- Yousef Walid Aboelnaga
+- Abdelrahman Ahmed
+- Abdullah Khaled
+- Fatma Mohamed
+- Hager GabAllah
+
+---
+
+## ❤️ Purpose
+
+This project aims to help communities find missing children and improve safety using technology.
+
+---
+
+## 📜 License
+
+This project is for educational and social impact purposes.

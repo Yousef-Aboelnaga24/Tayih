@@ -30,7 +30,7 @@ export default function PersonDetails() {
                 const name = document.getElementById("swal-input1").value.trim();
                 const phone = document.getElementById("swal-input2").value.trim();
                 const details = document.getElementById("swal-input3").value.trim();
-                
+
                 if (!name || !phone || !details) {
                     Swal.showValidationMessage("يرجى إدخال جميع البيانات المطلوبة");
                     return false;
@@ -47,7 +47,7 @@ export default function PersonDetails() {
                 };
                 const existingReports = JSON.parse(localStorage.getItem("personReports")) || [];
                 localStorage.setItem("personReports", JSON.stringify([...existingReports, newReport]));
-                
+
                 Swal.fire({
                     icon: "success",
                     title: "تم الإرسال!",
@@ -87,16 +87,16 @@ export default function PersonDetails() {
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 p-6 md:p-10 overflow-hidden relative">
                     {/* Decorative element */}
-                    <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-bl-[100px] -z-0"></div>
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-bl-[100px] z-0"></div>
 
                     <div className="flex flex-col md:flex-row gap-8 lg:gap-12 relative z-10">
                         {/* الصورة */}
-                        <div className="w-full md:w-1/3 flex-shrink-0">
+                        <div className="w-full md:w-1/3 shrink-0">
                             <div className="p-2 bg-primary/5 rounded-3xl shadow-inner mx-auto max-w-sm">
                                 <img
                                     src={person.personImage}
                                     alt={person.personName}
-                                    className="w-full h-auto aspect-[3/4] object-cover rounded-2xl shadow-md transform hover:scale-[1.02] transition-transform duration-300"
+                                    className="w-full h-auto aspect-3/4 object-cover rounded-2xl shadow-md transform hover:scale-[1.02] transition-transform duration-300"
                                 />
                             </div>
                         </div>
@@ -106,7 +106,7 @@ export default function PersonDetails() {
                             {/* عنوان + الأزرار */}
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b border-gray-100 pb-6">
                                 <h3 className="font-bold text-2xl md:text-3xl text-primary-dark flex items-center">
-                                    <i className="fa-solid fa-circle-info me-3 text-primary"></i> 
+                                    <i className="fa-solid fa-circle-info me-3 text-primary"></i>
                                     بيانات المفقود
                                 </h3>
                                 <div className="flex flex-wrap gap-3 w-full sm:w-auto">
@@ -167,7 +167,7 @@ export default function PersonDetails() {
 
                             <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-3 gap-4">
                                 <div className="flex items-center gap-3 bg-white border border-gray-100 p-3 rounded-xl shadow-sm">
-                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                                         <i className="fa-solid fa-id-badge"></i>
                                     </div>
                                     <div className="overflow-hidden">
@@ -176,7 +176,7 @@ export default function PersonDetails() {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 bg-white border border-gray-100 p-3 rounded-xl shadow-sm">
-                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                                         <i className="fa-solid fa-phone"></i>
                                     </div>
                                     <div className="overflow-hidden">
@@ -185,7 +185,7 @@ export default function PersonDetails() {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 bg-white border border-gray-100 p-3 rounded-xl shadow-sm">
-                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                                         <i className="fa-solid fa-calendar-check"></i>
                                     </div>
                                     <div className="overflow-hidden">
