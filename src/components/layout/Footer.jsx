@@ -1,3 +1,6 @@
+import { Home, Info, Mail, Cog, Phone } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa"
+
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -5,7 +8,7 @@ function Footer() {
         <footer className="text-white py-12" style={{ backgroundColor: "#074c3a" }}>
             <div className="w-full max-w-7xl mx-auto px-4 lg:px-8 flex flex-col">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 text-right">
-                    
+
                     {/* القسم الأول */}
                     <div>
                         <h2 className="font-bold mb-4 text-2xl text-primary-light">تائه</h2>
@@ -22,33 +25,33 @@ function Footer() {
                             <li>
                                 <Link
                                     to="/"
-                                    className="text-gray-200 hover:text-white hover:translate-x-[-5px] transition-all flex items-center"
+                                    className="text-gray-200 hover:text-white hover:-translate-x-1.25 transition-all flex items-center"
                                 >
-                                    <i className="fas fa-home me-2 w-5 text-center"></i> الرئيسية
+                                    <Home className="me-2 w-5 text-center" /> الرئيسية
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     to="/about"
-                                    className="text-gray-200 hover:text-white hover:translate-x-[-5px] transition-all flex items-center"
+                                    className="text-gray-200 hover:text-white hover:-translate-x-1.25 transition-all flex items-center"
                                 >
-                                    <i className="fas fa-info-circle me-2 w-5 text-center"></i> من نحن
+                                    <Info className="me-2 w-5 text-center" /> من نحن
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     to="/services"
-                                    className="text-gray-200 hover:text-white hover:translate-x-[-5px] transition-all flex items-center"
+                                    className="text-gray-200 hover:text-white hover:-translate-x-1.25 transition-all flex items-center"
                                 >
-                                    <i className="fas fa-cogs me-2 w-5 text-center"></i> الخدمات
+                                    <Cog className="me-2 w-5 text-center" /> الخدمات
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     to="/contact"
-                                    className="text-gray-200 hover:text-white hover:translate-x-[-5px] transition-all flex items-center"
+                                    className="text-gray-200 hover:text-white hover:-translate-x-1.25 transition-all flex items-center"
                                 >
-                                    <i className="fas fa-envelope me-2 w-5 text-center"></i> اتصل بنا
+                                    <Mail className="me-2 w-5 text-center" /> اتصل بنا
                                 </Link>
                             </li>
                         </ul>
@@ -59,13 +62,13 @@ function Footer() {
                         <h3 className="font-bold mb-4 text-xl text-primary-light">تواصل معنا</h3>
                         <div className="space-y-3 text-gray-200 text-sm">
                             <p className="flex items-center hover:text-white hover:underline cursor-pointer transition-colors">
-                                <i className="fas fa-home me-2 w-5 text-center"></i> القاهرة، مصر
+                                <Home className="me-2 w-5 text-center" /> القاهرة، مصر
                             </p>
                             <p className="flex items-center hover:text-white hover:underline cursor-pointer transition-colors">
-                                <i className="fas fa-envelope me-2 w-5 text-center"></i> info@tayeh.com
+                                <Mail className="me-2 w-5 text-center" /> info@tayeh.com
                             </p>
                             <p className="flex items-center hover:text-white hover:underline cursor-pointer transition-colors">
-                                <i className="fas fa-phone me-2 w-5 text-center"></i> +20 123 456 7890
+                                <Phone className="me-2 w-5 text-center" /> +20 123 456 7890
                             </p>
                         </div>
                     </div>
@@ -83,28 +86,28 @@ function Footer() {
                                 className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-200 hover:bg-white hover:text-[#074c3a] hover:border-white transition-all duration-300"
                                 aria-label="Facebook"
                             >
-                                <i className="fab fa-facebook-f text-lg"></i>
+                                <FaFacebookF className="text-lg" />
                             </a>
                             <a
                                 href="#"
                                 className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-200 hover:bg-white hover:text-[#074c3a] hover:border-white transition-all duration-300"
                                 aria-label="WhatsApp"
                             >
-                                <i className="fab fa-whatsapp text-lg"></i>
+                                <FaWhatsapp className="text-lg"/>
                             </a>
                             <a
                                 href="#"
                                 className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-200 hover:bg-white hover:text-[#074c3a] hover:border-white transition-all duration-300"
                                 aria-label="Instagram"
                             >
-                                <i className="fab fa-instagram text-lg"></i>
+                                <FaInstagram className="text-lg"/>
                             </a>
                             <a
                                 href="#"
                                 className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-200 hover:bg-white hover:text-[#074c3a] hover:border-white transition-all duration-300"
                                 aria-label="Twitter"
                             >
-                                <i className="fab fa-twitter text-lg"></i>
+                                <FaTwitter className="text-lg"/>
                             </a>
                         </div>
                     </div>

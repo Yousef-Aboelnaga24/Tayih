@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Info, Flag, ArrowRight, User, Cake, VenusAndMars, MapPin, HeartPulse, Search, CalendarX, Crosshair, IdCard, Phone, CalendarCheck } from "lucide-react";
 import Swal from "sweetalert2";
 
 export default function PersonDetails() {
@@ -63,7 +64,7 @@ export default function PersonDetails() {
         return (
             <div className="pt-40 pb-20 text-center min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 max-w-md w-full">
-                    <i className="fas fa-search-minus text-6xl text-red-100 mb-6 block"></i>
+                    <Search className="text-6xl text-red-100 mb-6 block" />
                     <h3 className="text-2xl font-bold text-red-500 mb-2">لا توجد بيانات!</h3>
                     <p className="text-gray-500 mb-6">عذراً، لم نتمكن من العثور على بيانات هذا الشخص.</p>
                     <button onClick={() => navigate(-1)} className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-medium transition-colors">
@@ -106,7 +107,7 @@ export default function PersonDetails() {
                             {/* عنوان + الأزرار */}
                             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b border-gray-100 pb-6">
                                 <h3 className="font-bold text-2xl md:text-3xl text-primary-dark flex items-center">
-                                    <i className="fa-solid fa-circle-info me-3 text-primary"></i>
+                                    <Info className="me-3 text-primary" />
                                     بيانات المفقود
                                 </h3>
                                 <div className="flex flex-wrap gap-3 w-full sm:w-auto">
@@ -114,13 +115,13 @@ export default function PersonDetails() {
                                         onClick={handleAddReport}
                                         className="flex-1 sm:flex-none inline-flex justify-center items-center bg-red-50 hover:bg-red-500 text-red-500 hover:text-white border border-red-200 hover:border-red-500 px-5 py-2.5 rounded-full font-medium transition-all duration-300 shadow-sm"
                                     >
-                                        <i className="fa-solid fa-flag ml-2"></i> إضافة بلاغ
+                                        <Flag className="fa-solid fa-flag ml-2" /> إضافة بلاغ
                                     </button>
                                     <button
                                         onClick={() => navigate(-1)}
                                         className="flex-1 sm:flex-none inline-flex justify-center items-center bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-5 py-2.5 rounded-full font-medium transition-all duration-300 shadow-sm"
                                     >
-                                        <i className="fa-solid fa-arrow-right-long ml-2"></i> الرجوع
+                                        <ArrowRight className="fa-solid fa-arrow-right-long ml-2" /> الرجوع
                                     </button>
                                 </div>
                             </div>
@@ -128,39 +129,39 @@ export default function PersonDetails() {
                             {/* ترتيب البيانات بشكل منطقي */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                                 <div className="flex items-start p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                    <i className="fa-solid fa-user text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <User className="text-primary mt-1 ml-3 w-5 text-center" />
                                     <div><strong className="text-gray-500 block text-xs mb-1">الاسم</strong><span className="font-bold text-gray-900 text-lg">{person.personName}</span></div>
                                 </div>
                                 <div className="flex items-start p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                    <i className="fa-solid fa-cake-candles text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <Cake className="text-primary mt-1 ml-3 w-5 text-center"/>
                                     <div><strong className="text-gray-500 block text-xs mb-1">العمر</strong><span className="font-bold text-gray-900 text-lg">{person.age} سنة</span></div>
                                 </div>
                                 <div className="flex items-start p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                    <i className="fa-solid fa-venus-mars text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <VenusAndMars className="fa-solid fa-venus-mars text-primary mt-1 ml-3 w-5 text-center"/>
                                     <div><strong className="text-gray-500 block text-xs mb-1">النوع</strong><span className="font-bold text-gray-900 text-lg">{person.gender}</span></div>
                                 </div>
                                 <div className="flex items-start p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                    <i className="fa-solid fa-map-location-dot text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <MapPin className="text-primary mt-1 ml-3 w-5 text-center"/>
                                     <div><strong className="text-gray-500 block text-xs mb-1">المحافظة</strong><span className="font-bold text-gray-900 text-lg">{person.governorate}</span></div>
                                 </div>
                                 <div className="flex items-start p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                    <i className="fa-solid fa-heart-pulse text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <HeartPulse className="text-primary mt-1 ml-3 w-5 text-center"/>
                                     <div><strong className="text-gray-500 block text-xs mb-1">الحالة الصحية</strong><span className="font-bold text-gray-900 text-lg">{person.healthStatus}</span></div>
                                 </div>
                                 <div className="flex items-start p-3 bg-red-50 rounded-xl border border-red-100">
-                                    <i className="fa-solid fa-magnifying-glass text-red-500 mt-1 ml-3 w-5 text-center"></i>
+                                    <Search className="text-red-500 mt-1 ml-3 w-5 text-center"/>
                                     <div><strong className="text-red-400 block text-xs mb-1">حالة المفقود</strong><span className="font-bold text-red-600 text-lg">{person.missingStatus}</span></div>
                                 </div>
                                 <div className="flex items-start p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                    <i className="fa-regular fa-calendar-xmark text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <CalendarX className="text-primary mt-1 ml-3 w-5 text-center"/>
                                     <div><strong className="text-gray-500 block text-xs mb-1">تاريخ التغيب</strong><span className="font-bold text-gray-900 text-lg">{formattedMissingDate}</span></div>
                                 </div>
                                 <div className="flex items-start p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                                    <i className="fa-solid fa-location-crosshairs text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <Crosshair className="text-primary mt-1 ml-3 w-5 text-center"/>
                                     <div><strong className="text-gray-500 block text-xs mb-1">آخر مكان شوهد فيه</strong><span className="font-bold text-gray-900 text-lg">{person.lastSeen}</span></div>
                                 </div>
                                 <div className="flex items-start p-4 bg-primary/5 border border-primary/10 rounded-xl sm:col-span-2">
-                                    <i className="fa-solid fa-circle-info text-primary mt-1 ml-3 w-5 text-center"></i>
+                                    <Info className="text-primary mt-1 ml-3 w-5 text-center"></Info>
                                     <div><strong className="text-primary-dark block text-xs mb-1">تفاصيل إضافية عن الاختفاء</strong><span className="font-medium text-gray-800 text-base leading-relaxed">{person.details}</span></div>
                                 </div>
                             </div>
@@ -168,7 +169,7 @@ export default function PersonDetails() {
                             <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-3 gap-4">
                                 <div className="flex items-center gap-3 bg-white border border-gray-100 p-3 rounded-xl shadow-sm">
                                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                        <i className="fa-solid fa-id-badge"></i>
+                                        <IdCard />
                                     </div>
                                     <div className="overflow-hidden">
                                         <span className="block text-[10px] text-gray-400 uppercase tracking-wider">اسم المبلغ</span>
@@ -177,7 +178,7 @@ export default function PersonDetails() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-white border border-gray-100 p-3 rounded-xl shadow-sm">
                                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                        <i className="fa-solid fa-phone"></i>
+                                        <Phone className="fa-solid fa-phone"/>
                                     </div>
                                     <div className="overflow-hidden">
                                         <span className="block text-[10px] text-gray-400 uppercase tracking-wider">رقم التواصل</span>
@@ -186,7 +187,7 @@ export default function PersonDetails() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-white border border-gray-100 p-3 rounded-xl shadow-sm">
                                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                        <i className="fa-solid fa-calendar-check"></i>
+                                        <CalendarCheck />
                                     </div>
                                     <div className="overflow-hidden">
                                         <span className="block text-[10px] text-gray-400 uppercase tracking-wider">تاريخ الإبلاغ</span>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { LogIn, Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import Swal from "sweetalert2";
 
 function Login() {
@@ -62,7 +63,7 @@ function Login() {
         <div className="bg-white rounded-4xl shadow-2xl shadow-gray-200/50 p-8 sm:p-10 border border-gray-100">
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mb-4 mx-auto">
-              <i className="fas fa-sign-in-alt"></i>
+              <LogIn />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-2">تسجيل الدخول</h3>
             <p className="text-gray-500">مرحباً بعودتك! يرجى إدخال بياناتك للمتابعة.</p>
@@ -73,7 +74,7 @@ function Login() {
               <label className={labelClasses}>البريد الإلكتروني</label>
               <div className="relative">
                 <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
-                  <i className="fas fa-envelope"></i>
+                  <Mail />
                 </div>
                 <input
                   type="email"
@@ -90,7 +91,7 @@ function Login() {
               <label className={labelClasses}>كلمة المرور</label>
               <div className="relative">
                 <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
-                  <i className="fas fa-lock"></i>
+                  <Lock />
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
@@ -105,13 +106,13 @@ function Login() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400 hover:text-primary transition-colors focus:outline-none"
                 >
-                  <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                  {showPassword ? <EyeOff /> : <Eye />}
                 </button>
               </div>
             </div>
 
             <button type="submit" className="w-full bg-linear-to-r from-primary-dark to-primary hover:from-primary-darker hover:to-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-1 text-lg flex justify-center items-center gap-2">
-              تسجيل الدخول <i className="fas fa-arrow-left mt-1"></i>
+              تسجيل الدخول <ArrowLeft />
             </button>
           </form>
 

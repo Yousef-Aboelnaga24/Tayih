@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CloudUpload, CheckCircle2, IdCard, Send } from "lucide-react";
 import Swal from "sweetalert2";
 import InputField from "../components/ui/InputField";
 
@@ -129,7 +130,7 @@ export default function Form() {
             <label className={labelClasses}>ارفع صورة للشخص بوضوح</label>
             <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-primary transition-colors bg-white">
               <div className="space-y-1 text-center">
-                <i className="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3 block"></i>
+                <CloudUpload size={"40px"} className="mx-auto text-gray-400 mb-3" />
                 <div className="flex flex-col text-sm text-gray-600 justify-center items-center">
                   <label className="relative cursor-pointer bg-primary/10 hover:bg-primary/20 text-primary-dark rounded-full px-4 py-2 font-medium focus-within:outline-none transition-colors">
                     <span>اختر صورة</span>
@@ -138,7 +139,8 @@ export default function Form() {
                   <p className="mt-2">أو اسحب وأفلت الصورة هنا</p>
                 </div>
                 <p className="text-xs text-gray-500 mt-2">PNG, JPG بحد أقصى 5MB</p>
-                {personImage && <p className="text-sm text-green-600 font-semibold mt-3"><i className="fas fa-check-circle ml-1"></i>تم رفع الصورة بنجاح</p>}
+                {personImage && <p className="text-sm text-green-600 font-semibold mt-3 flex">
+                  <CheckCircle2 className="ml-1" /> تم رفع الصورة بنجاح</p>}
               </div>
             </div>
           </div>
@@ -219,7 +221,7 @@ export default function Form() {
 
           <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 mb-8 mt-2">
             <h4 className="text-lg font-bold text-primary-dark mb-4 flex items-center">
-              <i className="fas fa-address-card ml-2 text-primary"></i> بيانات مقدم البلاغ للاتصال به
+              <IdCard className="ml-2 text-primary" /> بيانات مقدم البلاغ للاتصال به
             </h4>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -236,7 +238,7 @@ export default function Form() {
 
           <div className="text-center mt-2">
             <button type="submit" className="bg-linear-to-r from-primary-dark to-primary hover:from-primary-darker hover:to-primary text-white font-bold rounded-full py-4 px-12 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-1 text-lg w-full md:w-auto inline-flex items-center justify-center gap-3">
-              إرسال البلاغ <i className="fa-solid fa-paper-plane"></i>
+              إرسال البلاغ <Send />
             </button>
           </div>
 

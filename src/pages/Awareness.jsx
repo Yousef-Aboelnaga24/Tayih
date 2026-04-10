@@ -1,3 +1,4 @@
+import { HeartHandshake, HeartPlus, Accessibility, Wrench, MessageCircle, CheckCircle2, Home, Shield, Brain, Megaphone, TriangleAlert, GraduationCap, HandHelping, UserPlus2, Smartphone,FileText,Bell, BookOpen } from 'lucide-react';
 import Button from '../components/ui/Button'
 
 export default function ParentAwareness() {
@@ -108,7 +109,7 @@ export default function ParentAwareness() {
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg flex justify-center items-center gap-4">
-            <i className="fas fa-hand-holding-heart text-primary-light"></i> توعية الأهالي
+            <HeartHandshake size="50px" className="text-primary-light" /> توعية الأهالي
           </h1>
           <p className="text-xl text-primary-light/90 leading-relaxed font-light">
             دليل شامل للتعامل مع الأطفال بحرص ووعي، لحمايتهم من الضياع والمخاطر.
@@ -124,7 +125,7 @@ export default function ParentAwareness() {
         <section className="mb-24">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-              <i className="fas fa-heartbeat"></i>
+              <HeartPlus />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">الطفل السليم صحياً</h2>
             <p className="text-gray-500 text-lg">
@@ -135,44 +136,44 @@ export default function ParentAwareness() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-primary-dark mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-graduation-cap text-2xl text-primary-light"></i> التوعية الأساسية
+                <GraduationCap className="text-2xl text-primary-light" /> التوعية الأساسية
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {healthyTips.basic.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-primary mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-primary mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-primary-dark mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-shield-alt text-2xl text-primary-light"></i> التدابير الوقائية
+                <Shield className="text-2xl text-primary-light" /> التدابير الوقائية
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {healthyTips.preventive.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-primary mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-primary mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-primary-dark mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-mobile-alt text-2xl text-primary-light"></i> التكنولوجيا المساعدة
+                <Smartphone className="text-2xl text-primary-light"/> التكنولوجيا المساعدة
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {healthyTips.technology.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-primary mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-primary mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-primary-dark mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-brain text-2xl text-primary-light"></i> التنشئة النفسية
+                <Brain className="text-2xl text-primary-light" /> التنشئة النفسية
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {healthyTips.psychological.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-primary mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-primary mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
@@ -180,7 +181,7 @@ export default function ParentAwareness() {
 
           <div className="bg-amber-50 rounded-3xl p-8 mt-10 text-center border border-amber-100/50 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-            <i className="fas fa-exclamation-triangle text-4xl text-amber-500 mb-4 relative z-10"></i>
+            <TriangleAlert size="36" className="mx-auto text-amber-500 mb-4 relative z-10" />
             <h4 className="text-xl font-bold text-amber-600 mb-2 relative z-10">
               تنبيه هام
             </h4>
@@ -196,7 +197,7 @@ export default function ParentAwareness() {
               className="inline-flex items-center justify-center gap-3 bg-white text-primary-dark border-2 border-primary-dark/20 hover:border-primary px-8 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
               download={"الدليل الكامل للطفل السليم"}
             >
-              <i className="fas fa-file-pdf text-red-500 text-xl"></i> تحميل الدليل الشامل (PDF)
+              <FileText className="text-red-500 text-xl"/> تحميل الدليل الشامل (PDF)
             </a>
           </div>
         </section>
@@ -205,7 +206,7 @@ export default function ParentAwareness() {
         <section className="mb-24 border-t border-gray-200 pt-20">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-              <i className="fas fa-wheelchair"></i>
+              <Accessibility />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">طفل من ذوي الاحتياجات الخاصة</h2>
             <p className="text-gray-500 text-lg">
@@ -216,44 +217,44 @@ export default function ParentAwareness() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-blue-800 mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-comments text-2xl text-blue-400"></i> التواصل والتفاهم
+                <MessageCircle className="text-2xl text-blue-400" /> التواصل والتفاهم
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {specialNeedsTips.communication.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-blue-500 mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-blue-800 mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-tools text-2xl text-blue-400"></i> الأجهزة والمستلزمات
+                <Wrench className="text-2xl text-blue-400" /> الأجهزة والمستلزمات
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {specialNeedsTips.equipment.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-blue-500 mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-blue-800 mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-home text-2xl text-blue-400"></i> البيئة الآمنة
+                <Home className="text-2xl text-blue-400" /> البيئة الآمنة
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {specialNeedsTips.environment.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-blue-500 mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold text-blue-800 mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
-                <i className="fas fa-hands-helping text-2xl text-blue-400"></i> التعامل المجتمعي
+                <HandHelping className="text-2xl text-blue-400" /> التعامل المجتمعي
               </h3>
               <ul className="space-y-4 text-gray-600">
                 {specialNeedsTips.community.map((tip, index) => (
-                  <li key={index} className="flex items-start gap-3"><i className="fas fa-check-circle text-blue-500 mt-1 shrink-0"></i>{tip}</li>
+                  <li key={index} className="flex items-start gap-3"><CheckCircle2 className="text-blue-500 mt-1 shrink-0" />{tip}</li>
                 ))}
               </ul>
             </div>
@@ -261,7 +262,7 @@ export default function ParentAwareness() {
 
           <div className="bg-blue-50/50 rounded-3xl p-8 mt-10 text-center border border-blue-100 shadow-sm relative overflow-hidden">
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-100 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
-            <i className="fas fa-user-md text-4xl text-blue-500 mb-4 relative z-10"></i>
+            <UserPlus2 size="36" className="mx-auto text-blue-500 mb-4 relative z-10" />
             <h4 className="text-xl font-bold text-blue-700 mb-2 relative z-10">
               ملاحظة طبية
             </h4>
@@ -276,7 +277,7 @@ export default function ParentAwareness() {
               className="inline-flex items-center justify-center gap-3 bg-white text-blue-700 border-2 border-blue-200 hover:border-blue-500 px-8 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
               download={"دليل رعاية وحماية ذوي الاحتياجات الخاصة"}
             >
-              <i className="fas fa-book-medical text-xl"></i> تحميل دليل ذوي الاحتياجات (PDF)
+              <BookOpen className="text-xl"/> تحميل دليل ذوي الاحتياجات (PDF)
             </a>
           </div>
         </section>
@@ -286,7 +287,7 @@ export default function ParentAwareness() {
           <div className="absolute top-0 right-0 w-full h-2 bg-linear-to-r from-red-500 to-red-400"></div>
 
           <h2 className="text-3xl font-bold text-red-600 mb-4 flex justify-center items-center gap-3">
-            <i className="fas fa-siren-on text-4xl animate-pulse"></i> خطوات فورية عند فقدان طفل
+            <Bell className="text-4xl animate-pulse"/> خطوات فورية عند فقدان طفل
           </h2>
           <p className="text-lg text-gray-600 mb-12">
             إذا فقدت طفلك، لا تدع الخوف يسيطر عليك. اتبع هذه الخطوات بالترتيب مباشرة:
@@ -310,7 +311,7 @@ export default function ParentAwareness() {
             variant="danger"
             className="mb-12"
             label="إطلاق نداء استغاثة الآن"
-            icon="bullhorn"
+            icon={<Megaphone />}
           />
 
           <div className="bg-red-50 rounded-2xl p-6 border border-red-100 max-w-3xl mx-auto">

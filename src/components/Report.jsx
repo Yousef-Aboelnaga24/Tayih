@@ -1,3 +1,4 @@
+import { HandHeart, Quote, Megaphone } from "lucide-react";
 import Button from "./ui/Button";
 
 function Report() {
@@ -22,7 +23,7 @@ function Report() {
 
                     <div className="order-1 md:order-2 text-center md:text-right">
                         <div className="inline-flex items-center justify-center p-3 bg-primary/10 text-primary-dark rounded-xl mb-6">
-                            <i className="fas fa-hand-holding-heart text-2xl"></i>
+                            <HandHeart size={"30px"} />
                         </div>
                         <h2 className="font-bold mb-6 text-gray-900 text-3xl md:text-4xl lg:text-5xl leading-tight">
                             هل رأيت شخصاً <span className="text-primary-dark relative">
@@ -37,7 +38,7 @@ function Report() {
                         </p>
 
                         <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 mb-8 inline-block text-right w-full md:w-auto">
-                            <i className="fas fa-quote-right text-3xl text-primary-light/30 mb-2"></i>
+                            <Quote className="text-3xl text-primary-light/30 mb-2" />
                             <span className="font-semibold text-gray-800 block text-lg"> كل معلومة صغيرة قد تصنع فارقاً حقيقياً في إنقاذ حياة. </span>
                         </div>
 
@@ -46,7 +47,7 @@ function Report() {
                                 path="report"
                                 variant="linear"
                                 label="قدّم البلاغ الآن"
-                                icon="bullhorn"
+                                icon={<Megaphone />}
                             />
                         </div>
                     </div>

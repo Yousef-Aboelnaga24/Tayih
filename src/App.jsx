@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Offline } from "react-detect-offline";
+import { Offline, Online } from "react-detect-offline";
 import './App.css'
 import Layout from "./components/layout/Layout";
 

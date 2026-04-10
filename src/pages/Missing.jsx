@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Search } from "lucide-react";
 import Card from "../components/Card";
 
 export default function Missing() {
@@ -24,7 +25,7 @@ export default function Missing() {
         {people.length === 0 ? (
           <div className="py-24 text-center bg-white rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto flex flex-col items-center">
               <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mb-6">
-                <i className="fas fa-search text-5xl text-gray-300"></i>
+                <Search size={"50px"} className="text-gray-300"/>
               </div>
               <h3 className="text-2xl font-bold text-gray-700 mb-2">لا يوجد بلاغات بعد</h3>
               <p className="text-gray-500 mb-6">لم يتم تسجيل أي بلاغ عن أشخاص مفقودين حتى الآن.</p>

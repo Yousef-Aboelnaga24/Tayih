@@ -1,8 +1,10 @@
+import { Baby, UserRound, MapPinSearch, Shield } from "lucide-react";
+
 function About() {
     return (
         <>
             <div className="pt-20 bg-gray-50 min-h-screen">
-                <section className="bg-primary-darker text-white py-24 bg-[url('/image/hero-bg.webp')] bg-cover bg-center bg-no-repeat bg-blend-overlay relative">
+                <section className="bg-primary-darker text-white py-24 bg-[url('./image/hero-bg.webp')] bg-cover bg-center bg-no-repeat bg-blend-overlay relative">
                     <div className="absolute inset-0 bg-black/50"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">من نحن</h1>
@@ -34,7 +36,7 @@ function About() {
                             {/* Service 1 */}
                             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center group">
                                 <div className="w-20 h-20 mx-auto bg-primary/10 text-primary-dark rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                                    <i className="fas fa-child"></i>
+                                    <Baby />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">البحث عن الأطفال</h3>
                                 <p className="text-gray-500 leading-relaxed text-sm">نوفر وسيلة فعالة للإبلاغ والبحث عن الأطفال الذين فقدوا بطريقة سهلة ومبسطة.</p>
@@ -44,7 +46,7 @@ function About() {
                             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center group relative overflow-hidden">
                                 <div className="absolute inset-0 bg-primary/5 rounded-3xl transform group-hover:scale-105 transition-all duration-500 opacity-0 group-hover:opacity-100 pointer-events-none"></div>
                                 <div className="w-20 h-20 mx-auto bg-primary/10 text-primary-dark rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 relative z-10">
-                                    <i className="fas fa-user-astronaut"></i>
+                                    <UserRound />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-4 relative z-10">البحث عن كبار السن</h3>
                                 <p className="text-gray-500 leading-relaxed text-sm relative z-10">نساعد في العثور على كبار السن المفقودين ونعمل على تسهيل التواصل بين العائلات.</p>
@@ -54,7 +56,7 @@ function About() {
                             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center group relative overflow-hidden">
                                 <div className="absolute inset-0 bg-primary/5 rounded-3xl transform group-hover:scale-105 transition-all duration-500 opacity-0 group-hover:opacity-100 pointer-events-none"></div>
                                 <div className="w-20 h-20 mx-auto bg-primary/10 text-primary-dark rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 relative z-10">
-                                    <i className="fas fa-search-location"></i>
+                                    <MapPinSearch />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-4 relative z-10">قاعدة بيانات محدثة</h3>
                                 <p className="text-gray-500 leading-relaxed text-sm relative z-10">نحدث بيانات المفقودين باستمرار لنضمن دقة المعلومات وسرعة العثور عليهم.</p>
@@ -64,7 +66,7 @@ function About() {
                             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center group relative overflow-hidden">
                                 <div className="absolute inset-0 bg-primary/5 rounded-3xl transform group-hover:scale-105 transition-all duration-500 opacity-0 group-hover:opacity-100 pointer-events-none"></div>
                                 <div className="w-20 h-20 mx-auto bg-primary/10 text-primary-dark rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 relative z-10">
-                                    <i className="fas fa-shield-alt"></i>
+                                    <Shield />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-4 relative z-10">خصوصية وأمان</h3>
                                 <p className="text-gray-500 leading-relaxed text-sm relative z-10">نلتزم بحماية بيانات المستخدمين ونضمن سرية المعلومات للحفاظ على ثقتكم.</p>

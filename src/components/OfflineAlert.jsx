@@ -1,5 +1,6 @@
-const OfflineAlert = () => {
+import { WifiOff } from "lucide-react";
 
+const OfflineAlert = () => {
     return (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-9999 w-full max-w-sm px-4 md:px-0 pointer-events-none">
             <div
@@ -8,7 +9,7 @@ const OfflineAlert = () => {
                 role="alert"
             >
                 <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-500 shrink-0 shadow-inner">
-                    <i className="fas fa-wifi-slash text-xl animate-pulse"></i>
+                    <WifiOff className="fa fa-wifi text-xl animate-pulse" />
                 </div>
                 <div>
                     <strong className="block text-gray-900 font-bold text-base mb-0.5">انقطع الاتصال</strong>

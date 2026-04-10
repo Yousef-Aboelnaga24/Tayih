@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { TriangleAlert, Megaphone, Search } from "lucide-react";
 import Button from "./ui/Button";
 
 function Hero() {
@@ -17,7 +17,7 @@ function Hero() {
                             السن التائهين بكل سهولة وسرعة.
                         </p>
                         <div className="mt-6 inline-flex items-center justify-center gap-3 bg-white/20 px-6 py-3 rounded-full border border-white/20">
-                            <i className="fa fa-triangle-exclamation text-red-500 text-xl animate-pulse"></i>
+                            <TriangleAlert className="fa fa-triangle-exclamation text-red-500 text-xl animate-pulse" />
                             <span className="text-white/90 font-medium">عدد البلاغات</span>
                             <span className="font-bold text-2xl text-white">{saved.length}</span>
                             <span className="text-white/90">بلاغ حتى الآن عبر المنصة</span>
@@ -30,7 +30,7 @@ function Hero() {
                                 path="report"
                                 variant="primary"
                                 label="أبلغ عن مفقود"
-                                icon="bullhorn"
+                                icon={<Megaphone />}
                             />
                         </div>
                         <div data-aos="fade-right" data-aos-duration={1000} data-aos-delay={900}>
@@ -38,7 +38,7 @@ function Hero() {
                                 path="missing"
                                 variant="outline"
                                 label="ابحث عن مفقود"
-                                icon="search"
+                                icon={<Search />}
                             />
                         </div>
                     </div>

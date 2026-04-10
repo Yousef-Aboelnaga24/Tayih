@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { MapPin, MessageCircleMore, Mail, Phone, Send, Check, } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 function Contact() {
     const [showSuccess, setShowSuccess] = useState(false);
@@ -7,7 +9,7 @@ function Contact() {
         e.preventDefault();
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 4000);
-        e.target.reset(); // clear form
+        e.target.reset();
     };
 
     const inputClasses = "w-full bg-white border border-gray-200 text-gray-900 rounded-xl focus:ring-primary focus:border-primary block p-4 transition-all outline-none shadow-sm hover:border-gray-300 font-medium";
@@ -22,14 +24,13 @@ function Contact() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 bg-white rounded-[2.5rem] shadow-2xl shadow-gray-200/50 overflow-hidden border border-gray-100">
 
-                    {/* 📨 معلومات التواصل */}
                     <div className="lg:col-span-5 relative z-10 flex flex-col justify-center bg-primary-darker text-white p-10 md:p-14">
                         <div className="absolute inset-0 bg-[url('/image/hero-bg.webp')] opacity-10 bg-cover bg-center pointer-events-none"></div>
                         <div className="absolute inset-0 bg-linear-to-br from-primary-darker/90 to-primary-dark/95 pointer-events-none"></div>
 
                         <div className="relative z-10">
                             <h2 className="text-3xl font-bold mb-6 flex items-center gap-3 drop-shadow-md">
-                                <i className="fas fa-comment-dots text-primary-light"></i> <span>تواصل معنا</span>
+                                <MessageCircleMore className="text-primary-light" /> <span>تواصل معنا</span>
                             </h2>
                             <p className="text-primary-light mb-10 text-lg leading-relaxed font-light">
                                 نحن هنا للإجابة على استفساراتك وتقديم الدعم بأسرع وقت ممكن. يمكنك التواصل معنا عبر الوسائل التالية:
@@ -38,25 +39,25 @@ function Contact() {
                             <ul className="space-y-6">
                                 <li className="flex items-center gap-4 group">
                                     <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white border border-white/10 group-hover:bg-white group-hover:text-primary-dark transition-all duration-300 group-hover:scale-110">
-                                        <i className="fas fa-map-marker-alt text-2xl"></i>
+                                        <MapPin />
                                     </div>
                                     <span className="font-medium text-lg leading-tight">القاهرة، مصر <br /><span className="text-sm font-light text-primary-light">المقر الرئيسي</span></span>
                                 </li>
                                 <li className="flex items-center gap-4 group">
                                     <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white border border-white/10 group-hover:bg-white group-hover:text-primary-dark transition-all duration-300 group-hover:scale-110">
-                                        <i className="fa fa-envelope text-xl"></i>
+                                        <Mail />
                                     </div>
                                     <span className="font-medium text-lg">support@taeh.com</span>
                                 </li>
                                 <li className="flex items-center gap-4 group">
                                     <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white border border-white/10 group-hover:bg-white group-hover:text-primary-dark transition-all duration-300 group-hover:scale-110">
-                                        <i className="fa fa-phone text-xl"></i>
+                                        <Phone />
                                     </div>
                                     <span className="font-medium text-lg dir-ltr tracking-wider">012 3456 7890</span>
                                 </li>
                                 <li className="flex items-center gap-4 group cursor-pointer mt-4">
                                     <div className="w-14 h-14 bg-[#25D366]/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-[#25D366] border border-[#25D366]/30 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                                        <i className="fab fa-whatsapp text-2xl"></i>
+                                        <FaWhatsapp className="text-2xl" />
                                     </div>
                                     <span className="font-bold text-lg dir-ltr tracking-wider">تواصل عبر واتساب</span>
                                 </li>
@@ -97,17 +98,16 @@ function Contact() {
 
                                 <div className="pt-4">
                                     <button type="submit" className="w-full sm:w-auto bg-linear-to-l from-primary-dark to-primary hover:from-primary-darker hover:to-primary-dark text-white font-bold py-4 px-12 rounded-xl shadow-[0_10px_20px_-10px_rgba(10,163,128,0.5)] hover:shadow-[0_15px_25px_-10px_rgba(10,163,128,0.6)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3 text-lg">
-                                        إرسال الرسالة <i className="fas fa-paper-plane"></i>
+                                        إرسال الرسالة <Send />
                                     </button>
                                 </div>
                             </form>
 
-                            {/* ✅ رسالة تأكيد */}
                             {showSuccess && (
                                 <div className="absolute bottom-10 left-10 right-10 z-50 animate-[fade-in-up_0.5s_ease-out]">
                                     <div className="bg-white border-l-4 border-green-500 shadow-xl text-gray-800 font-bold p-5 rounded-r-xl rounded-l-md flex items-center gap-4">
                                         <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
-                                            <i className="fas fa-check text-xl"></i>
+                                            <Check size="20px" />
                                         </div>
                                         <div>
                                             <h4 className="text-green-600 text-lg">تم الإرسال بنجاح!</h4>

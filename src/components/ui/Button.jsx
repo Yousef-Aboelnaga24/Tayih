@@ -29,7 +29,7 @@ export default function Button({ path = "", label, icon, className, variant = "p
             data-aos-delay={delay}
             className={`${base} ${styles[variant]} ${className}`}
         >
-            {icon && <i className={`fas fa-${icon}`}></i>}
+            {icon}
             {label}
         </Link>
     )

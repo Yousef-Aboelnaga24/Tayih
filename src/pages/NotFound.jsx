@@ -1,4 +1,6 @@
+import { Home } from "lucide-react";
 import { Link } from "react-router-dom";
+import Button from "../components/ui/Button"
 
 function NotFound() {
   return (
@@ -8,7 +10,7 @@ function NotFound() {
 
       <div className="relative z-10 flex flex-col items-center">
         <img
-          src="/image/404 error with person looking for-bro.svg"
+          src="./image/404 error with person looking for-bro.svg"
           alt="404 Illustration"
           className="w-full max-w-62.5 md:max-w-xs mb-8 drop-shadow-xl"
         />
@@ -19,12 +21,7 @@ function NotFound() {
         <p className="text-gray-500 mb-8 max-w-md text-lg leading-relaxed">
           يبدو أنك وصلت إلى رابط غير صحيح أو تم حذف هذه الصفحة. لا تقلق، يمكنك العودة لمواصلة رحلتك في المنصة.
         </p>
-        <Link
-          to="/"
-          className="bg-linear-to-l from-primary-dark to-primary hover:from-primary-darker hover:to-primary-dark text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center gap-3 text-lg"
-        >
-          العودة إلى الرئيسية <i className="fas fa-home"></i>
-        </Link>
+        <Button path="/" label="العودة إلى الرئيسية" variant="linear" icon={<Home />} />
       </div>
     </section>
   );
