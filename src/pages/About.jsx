@@ -4,7 +4,7 @@ function About() {
     return (
         <>
             <div className="pt-20 bg-gray-50 min-h-screen">
-                <section className="bg-primary-darker text-white py-24 bg-[url('./image/hero-bg.webp')] bg-cover bg-center bg-no-repeat bg-blend-overlay relative">
+                <section className="bg-primary-darker text-white py-24 bg-[url('/image/hero-bg.webp')] bg-cover bg-center bg-no-repeat bg-blend-overlay relative">
                     <div className="absolute inset-0 bg-black/50"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">من نحن</h1>

@@ -111,7 +111,7 @@ export default function ParentAwareness() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg flex justify-center items-center gap-4">
             <HeartHandshake size="50px" className="text-primary-light" /> توعية الأهالي
           </h1>
-          <p className="text-xl text-primary-light/90 leading-relaxed font-light">
+          <p className="text-xl text-white leading-relaxed font-light">
             دليل شامل للتعامل مع الأطفال بحرص ووعي، لحمايتهم من الضياع والمخاطر.
             نقدم إرشادات عملية لكل مرحلة عمرية ونوعية.
           </p>
@@ -125,7 +125,7 @@ export default function ParentAwareness() {
         <section className="mb-24">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-              <HeartPlus />
+              <HeartPlus size={"36px"}/>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">الطفل السليم صحياً</h2>
             <p className="text-gray-500 text-lg">
@@ -206,7 +206,7 @@ export default function ParentAwareness() {
         <section className="mb-24 border-t border-gray-200 pt-20">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-              <Accessibility />
+              <Accessibility size={"36px"} />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">طفل من ذوي الاحتياجات الخاصة</h2>
             <p className="text-gray-500 text-lg">

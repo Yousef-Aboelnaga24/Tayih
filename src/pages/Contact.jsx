@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { MapPin, MessageCircleMore, Mail, Phone, Send, Check, } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import InputField from '../components/ui/InputField';
 
 function Contact() {
     const [showSuccess, setShowSuccess] = useState(false);
@@ -65,7 +66,7 @@ function Contact() {
                         </div>
                     </div>
 
-                    {/* 📝 نموذج التواصل */}
+                    {/* نموذج التواصل */}
                     <div className="lg:col-span-7 relative z-10 bg-gray-50/50">
                         <div className="p-10 md:p-14 h-full flex flex-col justify-center relative">
                             <h5 className="text-3xl font-bold text-gray-900 mb-8 inline-block relative pb-2 text-center md:text-right">
@@ -75,10 +76,7 @@ function Contact() {
 
                             <form onSubmit={showConfirmation} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label htmlFor="name" className={labelClasses}>الاسم الكريم</label>
-                                        <input type="text" id="name" className={inputClasses} placeholder="ادخل اسمك بالكامل" required />
-                                    </div>
+                                    <InputField label="الاسم الكريم" id="name" extraClass="bg-white" placeholder="ادخل اسمك بالكامل" required />
 
                                     <div>
                                         <label htmlFor="email" className={labelClasses}>البريد الإلكتروني</label>

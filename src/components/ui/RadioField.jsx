@@ -1,22 +1,32 @@
-import React from "react";
+const RadioField = ({ label, name, options, selected, onChange }) => {
+    return (
+        <div className="mb-3">
+            <span className="form-label d-block">{label}</span>
 
-const RadioField = ({ label, name, options, selected, onChange }) => (
-    <div className="mb-3">
-        <label className="form-label d-block">{label}</label>
-        {options.map((opt) => (
-            <div className="form-check form-check-inline" key={opt.value}>
-                <input
-                    className="form-check-input"
-                    type="radio"
-                    name={name}
-                    value={opt.value}
-                    checked={selected === opt.value}
-                    onChange={onChange}
-                />
-                <label className="form-check-label">{opt.label}</label>
-            </div>
-        ))}
-    </div>
-);
+            {options.map((opt, index) => {
+                const id = `${name}-${index}`;
+                const isChecked = selected === opt.value;
+
+                return (
+                    <div className="form-check form-check-inline" key={opt.value}>
+                        <input
+                            id={id}
+                            className="form-check-input"
+                            type="radio"
+                            name={name}
+                            value={opt.value}
+                            checked={isChecked}
+                            onChange={() => onChange(opt.value)}
+                        />
+
+                        <label htmlFor={id} className="form-check-label">
+                            {opt.label}
+                        </label>
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
 
 export default RadioField;

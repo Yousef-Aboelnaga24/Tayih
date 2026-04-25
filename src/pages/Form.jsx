@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { CloudUpload, CheckCircle2, IdCard, Send } from "lucide-react";
 import Swal from "sweetalert2";
 import InputField from "../components/ui/InputField";
+import RadioField from "../components/ui/RadioField";
+import SelectField from "../components/ui/SelectField"
 
 const governorates = [
   "القاهرة", "الجيزة", "الإسكندرية", "الدقهلية", "البحر الأحمر", "البحيرة", "الفيوم",
@@ -147,15 +149,10 @@ export default function Form() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {/* الاسم */}
-            <div>
-              <label className={labelClasses}>اسم الشخص</label>
-              <input type="text" className={inputClasses} placeholder="الاسم الرباعي إن أمكن" value={personName} onChange={(e) => setPersonName(letterOnly(e.target.value))} required />
-            </div>
+            <InputField label="اسم الشخص" placeholder="الاسم الرباعي إن امكن" id="name" name="missingName" onChange={(e) => setPersonName(letterOnly(e.target.value))} value={personName} />
+
             {/* العمر */}
-            <div>
-              <label className={labelClasses}>العمر التقريبي</label>
-              <input type="number" className={inputClasses} placeholder="مثال: 12" min="1" max="120" value={age} onChange={(e) => setAge(numberOnly(e.target.value))} required />
-            </div>
+            <InputField type="number" label="العمر التقريبي" placeholder="مثال: 12" id="age" name="age" maxLength="120" minLength="1" value={age} onChange={(e) => setAge(numberOnly(e.target.value))} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -175,13 +172,7 @@ export default function Form() {
             </div>
 
             {/* المحافظة */}
-            <div>
-              <label className={labelClasses}>المحافظة</label>
-              <select className={inputClasses} value={governorate} onChange={(e) => setGovernorate(e.target.value)} required>
-                <option value="">اختر المحافظة من القائمة</option>
-                {governorates.map((gov) => <option key={gov} value={gov}>{gov}</option>)}
-              </select>
-            </div>
+            <SelectField label="المحافظة" value={governorate} onChange={(e) => setGovernorate(e.target.value)} options={governorates} />
           </div>
 
           {/* حالة المفقود + الحالة الصحية + تاريخ التغيب */}
@@ -203,16 +194,10 @@ export default function Form() {
                 <option value="لديه إعاقة جسدية">لديه إعاقة جسدية (أصم/أبكم/إلخ)</option>
               </select>
             </div>
-            <div>
-              <label className={labelClasses}>تاريخ التغيب (أو المشاهدة)</label>
-              <input type="date" className={inputClasses} value={missingDate} onChange={(e) => setMissingDate(e.target.value)} required />
-            </div>
+            <InputField label="تاريخ التغيب (أو المشاهدة)" type="date" value={missingDate} onChange={(e) => setMissingDate(e.target.value)} />
           </div>
 
-          <div className="mb-6">
-            <label className={labelClasses}>آخر مكان شوهد فيه تفصيلياً</label>
-            <input type="text" className={inputClasses} placeholder="مثال: بجوار محطة رمسيس - القاهرة شارع كذا.." value={lastSeen} onChange={(e) => setLastSeen(letterOnly(e.target.value))} />
-          </div>
+          <InputField className="mb-8" label="آخر مكان شوهد فيه تفصيلياً" placeholder="مثال: بجوار محطة رمسيس - القاهرة شارع كذا.." value={lastSeen} onChange={(e) => setLastSeen(letterOnly(e.target.value))} />
 
           <div className="mb-8">
             <label className={labelClasses}>تفاصيل إضافية قد تساعد للتعرف عليه (الشكل، الملابس، إلخ)</label>
@@ -225,14 +210,9 @@ export default function Form() {
             </h4>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className={labelClasses}>اسمك</label>
-                <input type="text" className={`${inputClasses} bg-white`} placeholder="ادخل اسمك الثنائي" value={reporterName} onChange={(e) => setReporterName(letterOnly(e.target.value))} />
-              </div>
-              <div>
-                <label className={labelClasses}>رقم الهاتف</label>
-                <input type="tel" className={`${inputClasses} bg-white`} placeholder="01XXXXXXXXX" value={phoneNumber} maxLength="11" onChange={(e) => setPhoneNumber(numberOnly(e.target.value))} dir="rtl" />
-              </div>
+              <InputField label="اسمك" extraClass="bg-white" placeholder="ادخل اسمك الثنائي" value={reporterName} onChange={(e) => setReporterName(letterOnly(e.target.value))} />
+
+              <InputField label="رقم الهاتف" type="tel" extraClass="bg-white" placeholder="01XXXXXXXXX" value={phoneNumber} maxLength="11" onChange={(e) => setPhoneNumber(numberOnly(e.target.value))} dir="rtl" />
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import { Home, Info, Mail, Cog, Phone } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa"
+import { FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp, FaHeart } from "react-icons/fa"
 
 import { Link } from "react-router-dom";
 
@@ -93,21 +93,21 @@ function Footer() {
                                 className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-200 hover:bg-white hover:text-[#074c3a] hover:border-white transition-all duration-300"
                                 aria-label="WhatsApp"
                             >
-                                <FaWhatsapp className="text-lg"/>
+                                <FaWhatsapp className="text-lg" />
                             </a>
                             <a
                                 href="#"
                                 className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-200 hover:bg-white hover:text-[#074c3a] hover:border-white transition-all duration-300"
                                 aria-label="Instagram"
                             >
-                                <FaInstagram className="text-lg"/>
+                                <FaInstagram className="text-lg" />
                             </a>
                             <a
                                 href="#"
                                 className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-200 hover:bg-white hover:text-[#074c3a] hover:border-white transition-all duration-300"
                                 aria-label="Twitter"
                             >
-                                <FaTwitter className="text-lg"/>
+                                <FaTwitter className="text-lg" />
                             </a>
                         </div>
                     </div>
@@ -119,7 +119,7 @@ function Footer() {
                         <span className="font-bold text-white">تائه</span>
                     </p>
                     <p className="mt-2 md:mt-0 text-xs">
-                        تم التطوير بكل ❤️ من أجل مجتمع أفضل
+                        تم التطوير بكل <FaHeart color="red" size={15} className="inline animate-bounce" /> من أجل مجتمع أفضل
                     </p>
                 </div>
             </div>

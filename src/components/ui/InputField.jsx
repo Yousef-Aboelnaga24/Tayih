@@ -11,8 +11,11 @@ const InputField = ({
   onChange,
   placeholder,
   maxLength,
+  minLength,
+  dir,
   required = false,
   className = "",
+  extraClass = "",
   id,
 }) => (
   <div className={`mb-4 ${className}`}>
@@ -21,12 +24,14 @@ const InputField = ({
       id={id || name}
       name={name}
       type={type}
-      className={inputClasses}
+      className={`${inputClasses} ${extraClass}`}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
       maxLength={maxLength}
+      minLength={minLength}
       required={required}
+      dir={dir}
     />
   </div>
 );
